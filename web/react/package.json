@@ -1,0 +1,16 @@
+{
+  "name": "fd-front-react",
+  "version": "1.0.0",
+  "description": "Front end for Food Delivery Sample App build with React",
+  "main": "index.js",
+  "repository": "https://github.com/mishast/FoodDelivery",
+  "author": "Mikhail Strizhov",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
