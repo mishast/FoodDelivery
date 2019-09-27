@@ -110,9 +110,121 @@ Result (error):
  "errorText": "error text"
 }
 
-Url: /api/v1/admin/get-orders?status=status
+Url: /api/v1/admin/orders?status=status
 Method: GET
 Auth: Admin. Header "Authrorization: Bearer AdminJWT"
 Description: Get orders
 Order statuses: new, verified, in_work, ready_for_delivery, on_delivery, completed, canceled
+Response:
+{
+  "orders": [
+    {
+      "name": "name",
+      "phone": "phone",
+      "address": "address",
+      "status": "status"
+      "total": "100"
+    }
+  ]
+}
 
+Url: /api/v1/admin/orders/:id/
+Method: GET
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Get order
+Response:
+{
+  "name": "name",
+  "phone": "phone",
+  "address": "address",
+  "status": "status",
+  "items": [
+    {
+      "product": {
+        "id": 1,
+        "title": "title",
+        "description": "description",
+        "image": "https://image/url",
+        "price": "10.99"
+       },
+      "qty": 1
+    },
+    {
+      "product": {
+        "id": 2,
+        "title": "title",
+        "description": "description",
+        "image": "https://image/url",
+        "price": "11.99"
+       },
+      "qty": 1
+    }
+  ]
+}
+
+Url: /api/v1/admin/orders/:id/status
+Method: POST
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Set status
+Post data:
+{
+  "status": "new_status"
+}
+Response: none
+
+Url: /api/v1/admin/products
+Method: POST
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Add/update product
+Post data (create new):
+{
+  "title": "title",
+  "description": "description",
+  "price": "11.99"
+}
+Post data (update):
+{
+  "id": 1,
+  "title": "title",
+  "description": "description",
+  "price": "11.99"
+}
+Response:
+{
+   "id": 1
+}
+
+Url: /api/v1/admin/products
+Method: GET
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Get products
+Return:
+[
+  {
+    "id": 1,
+    "title": "title",
+    "description": "description",
+    "image": "https://image/url",
+    "price": "10.99"
+  }
+]
+
+Url: /api/v1/admin/products/:id
+Method: DELETE
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Delete product
+Return: none
+
+Url: /api/v1/admin/products/:id/image
+Method: POST
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Upload image for product
+Post data: file data
+Response: none
+
+Url: /api/v1/admin/products/:id/image
+Method: DELETE
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Delete image for product
+Post data: none
+Response: none
