@@ -76,7 +76,7 @@ Description: Add/Update cart item
   "qty": 1
 }
 
-Url: /api/v1/customer/:id/checkout
+Url: /api/v1/customer/:id/cart/checkout
 Method: POST
 Auth: Customer. Header "Authrorization: Bearer CustomerJWT"
 Description: Add order
@@ -173,6 +173,21 @@ Post data:
 Response: none
 
 Url: /api/v1/admin/products
+Method: GET
+Auth: Admin. Header "Authrorization: Bearer AdminJWT"
+Description: Get products
+Return:
+[
+  {
+    "id": 1,
+    "title": "title",
+    "description": "description",
+    "image": "https://image/url",
+    "price": "10.99"
+  }
+]
+
+Url: /api/v1/admin/products
 Method: POST
 Auth: Admin. Header "Authrorization: Bearer AdminJWT"
 Description: Add/update product
@@ -193,21 +208,6 @@ Response:
 {
    "id": 1
 }
-
-Url: /api/v1/admin/products
-Method: GET
-Auth: Admin. Header "Authrorization: Bearer AdminJWT"
-Description: Get products
-Return:
-[
-  {
-    "id": 1,
-    "title": "title",
-    "description": "description",
-    "image": "https://image/url",
-    "price": "10.99"
-  }
-]
 
 Url: /api/v1/admin/products/:id
 Method: DELETE
