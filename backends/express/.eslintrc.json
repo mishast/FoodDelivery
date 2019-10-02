@@ -7,7 +7,6 @@
 	},
 	"rules": {
 		"prettier/prettier": ["error", { "singleQuote": true }],
-		"import/newline-after-import": 0,
 		"class-methods-use-this": 0,
 		"no-console": "off"
 	}

@@ -4,7 +4,7 @@ import adminApi from '../controllers/api/v1/admin';
 
 function configureApiRoutes(router) {
 	router.get('/api/v1/products', publicApi.getProducts);
-	router.get('/api/v1/product', publicApi.getProduct);
+	router.get('/api/v1/product/:id', publicApi.getProduct);
 	router.post('/api/v1/customer', customerApi.createCustomer);
 	router.get('/api/v1/customer/:id/cart', customerApi.getCart);
 	router.put('/api/v1/customer/:id/cart', customerApi.updateCart);

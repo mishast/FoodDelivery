@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r esm index.js",
+    "seed": "node -r esm seed.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +20,8 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "helmet": "^3.21.1",
+    "mongodb": "^3.3.2",
+    "mongodb-uri": "^0.9.7",
     "morgan": "^1.9.1"
   },
   "devDependencies": {

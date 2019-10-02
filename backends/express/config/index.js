@@ -8,8 +8,8 @@ const config = {
 		host: process.env.HOST || '0.0.0.0',
 		port: process.env.PORT || 3000
 	},
-	mongo_url: '11112233',
-	jwt_secret: process.env.JWT_SECRET || 'sdfsdfsdf'
+	mongoUrl: 'mongodb://localhost/foodDelivery',
+	jwtSecret: process.env.JWT_SECRET || 'sdfsdfsdf'
 };
 
 export default config;

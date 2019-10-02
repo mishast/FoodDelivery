@@ -6,8 +6,13 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import config from './config';
 import routes from './routes';
+import mongo from './setup/mongo';
 
 const app = express();
+
+mongo.connect(db => {
+	app.db = db;
+});
 
 if (config.env === 'development') {
 	app.use(morgan('dev'));
