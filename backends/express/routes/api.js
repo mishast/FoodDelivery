@@ -7,7 +7,7 @@ function configureApiRoutes(router) {
 	router.get('/api/v1/product/:id', publicApi.getProduct);
 	router.post('/api/v1/customer', customerApi.createCustomer);
 	router.get('/api/v1/customer/:id/cart', customerApi.getCart);
-	router.put('/api/v1/customer/:id/cart', customerApi.updateCart);
+	router.post('/api/v1/customer/:id/cart/updateItem', customerApi.updateCartItem);
 	router.post('/api/v1/customer/:id/cart/checkout', customerApi.checkoutCart);
 	router.post('/api/v1/admin/login', adminApi.login);
 	router.get('/api/v1/admin/orders', adminApi.getOrders);
@@ -18,10 +18,7 @@ function configureApiRoutes(router) {
 	router.delete('/api/v1/admin/products/:id', adminApi.deleteProduct);
 	router.get('/api/v1/admin/products/:id', adminApi.getProduct);
 	router.post('/api/v1/admin/products/:id/image', adminApi.addProductImage);
-	router.delete(
-		'/api/v1/admin/products/:id/image',
-		adminApi.deleteProductImage
-	);
+	router.delete('/api/v1/admin/products/:id/image', adminApi.deleteProductImage);
 }
 
 export default configureApiRoutes;

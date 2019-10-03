@@ -1,36 +1,37 @@
-import {ObjectID} from 'mongodb';
+import { ObjectID } from 'mongodb';
+import errorHandler from '../../../../utils/errorHandler';
 
 const getProducts = async (req, res) => {
 	try {
-		let db = req.app.db;
+		const { db } = req.app;
 
-		let products = await db.collection('products').find({}).toArray();
+		const products = await db
+			.collection('products')
+			.find({})
+			.toArray();
 
 		res.status(200).json(products);
+	} catch (err) {
+		errorHandler(err, req, res);
 	}
-	catch (err) {
-		res.status(500).json({"error": err});
-	}
-
 };
 
 const getProduct = async (req, res) => {
 	try {
-		let db = req.app.db;
-		let productId = req.params.id;
+		const { db } = req.app;
+		const productId = req.params.id;
 
-		console.log('Request product with productId = ' + productId);
+		console.log(`Request product with productId = ${productId}`);
 
 		const filter = {
-			_id: new ObjectID(productId),
+			_id: new ObjectID(productId)
 		};
 
-		let product = await db.collection('products').findOne(filter);
+		const product = await db.collection('products').findOne(filter);
 
 		res.status(200).json(product);
-	}
-	catch (err) {
-		res.status(500).json({"error": err});
+	} catch (err) {
+		errorHandler(err, req, res);
 	}
 };
 

@@ -67,8 +67,8 @@ Response:
   }
 ]
 
-Url: /api/v1/customer/:id/cart
-Method: PUT
+Url: /api/v1/customer/:id/cart/updateItem
+Method: POST
 Auth: Customer. Header "Authrorization: Bearer CustomerJWT"
 Description: Add/Update cart item
 {
