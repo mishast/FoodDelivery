@@ -13,6 +13,7 @@ module.exports = merge.smart(webpackCommon, {
 				loader: [
 					'style-loader',
 					'css-loader',
+					'postcss-loader',
 					{
 						loader: 'sass-loader',
 						options: {

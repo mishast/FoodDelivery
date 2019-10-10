@@ -17,6 +17,7 @@ module.exports = merge.smart(webpackCommon, {
 				loader: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
+					'postcss-loader',
 					{
 						loader: 'sass-loader',
 						options: {
