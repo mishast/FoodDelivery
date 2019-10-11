@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './assets/scss/main.scss';
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.hydrate(<App />, document.getElementById("app"));

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 const webpackCommon = require("./webpack.common");
 
-module.exports = merge.smart(webpackCommon, {
+let clientConfig = merge.smart(webpackCommon.clientConfig, {
 	mode: 'development',
 	devtool: 'eval-source-map',
 	module: {
@@ -28,7 +28,25 @@ module.exports = merge.smart(webpackCommon, {
 		new webpack.HotModuleReplacementPlugin(),
 	],
 	devServer: {
-		contentBase: './dist',
+		contentBase: './dist/public',
 		hot: true,
 	},
 });
+
+let serverConfig = merge.smart(webpackCommon.serverConfig, {
+	mode: 'development',
+	devtool: 'eval-source-map',
+	module: {
+		rules: [
+			{
+				test: /\.s(a|c)ss$/,
+				loader: [ 'null-loader' ]
+			}
+		]
+	},
+});
+
+module.exports = [
+	clientConfig,
+	serverConfig
+];

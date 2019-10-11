@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const webpackCommon = require("./webpack.common");
 
-module.exports = merge.smart(webpackCommon, {
+let clientConfig = merge.smart(webpackCommon.clientConfig, {
 	mode: 'production',
 	devtool: 'source-map',
 	module: {
@@ -46,7 +46,29 @@ module.exports = merge.smart(webpackCommon, {
 		})
 	],
 	devServer: {
-		contentBase: './dist',
+		contentBase: './dist/public',
 		hot: false
-	},
+	}
 });
+
+let serverConfig = merge.smart(webpackCommon.clientConfig, {
+	mode: 'production',
+	devtool: 'source-map',
+	module: {
+		rules: [
+			{
+				test: /\.s(a|c)ss$/,
+				loader: [ 'null-loader' ]
+			}
+		]
+	},
+	optimization: {
+		minimize: false,
+	},
+	plugins: []
+});
+
+module.exports = [
+	clientConfig,
+	serverConfig
+];
