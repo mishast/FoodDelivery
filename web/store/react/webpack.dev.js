@@ -1,9 +1,9 @@
-const merge = require("webpack-merge");
+const merge = require('webpack-merge');
 const webpack = require('webpack');
 
-const webpackCommon = require("./webpack.common");
+const webpackCommon = require('./webpack.common');
 
-let clientConfig = merge.smart(webpackCommon.clientConfig, {
+const clientConfig = merge.smart(webpackCommon.clientConfig, {
 	mode: 'development',
 	devtool: 'eval-source-map',
 	module: {
@@ -24,29 +24,24 @@ let clientConfig = merge.smart(webpackCommon.clientConfig, {
 			}
 		]
 	},
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-	],
+	plugins: [new webpack.HotModuleReplacementPlugin()],
 	devServer: {
 		contentBase: './dist/public',
-		hot: true,
-	},
+		hot: true
+	}
 });
 
-let serverConfig = merge.smart(webpackCommon.serverConfig, {
+const serverConfig = merge.smart(webpackCommon.serverConfig, {
 	mode: 'development',
 	devtool: 'eval-source-map',
 	module: {
 		rules: [
 			{
 				test: /\.s(a|c)ss$/,
-				loader: [ 'null-loader' ]
+				loader: ['null-loader']
 			}
 		]
-	},
+	}
 });
 
-module.exports = [
-	clientConfig,
-	serverConfig
-];
+module.exports = [clientConfig, serverConfig];

@@ -1,6 +1,6 @@
 const Routes = [
 	{
-		path: '/',
+		path: '/'
 	},
 	{
 		path: '/product',
@@ -10,8 +10,7 @@ const Routes = [
 		path: '/cart',
 		loadData: () => {}
 	},
-	{
-	}
+	{}
 ];
 
 export default Routes;

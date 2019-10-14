@@ -2,10 +2,11 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let clientConfig = {
+const clientConfig = {
 	entry: './src/index.jsx',
 	output: {
 		path: path.resolve(__dirname, 'dist/public'),
+		publicPath: '/static',
 		filename: 'bundle.js'
 	},
 	module: {
@@ -14,7 +15,7 @@ let clientConfig = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: "babel-loader"
+					loader: 'babel-loader'
 				}
 			}
 		]
@@ -30,7 +31,7 @@ let clientConfig = {
 	]
 };
 
-let serverConfig = {
+const serverConfig = {
 	entry: './src/server.jsx',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -43,7 +44,7 @@ let serverConfig = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: "babel-loader"
+					loader: 'babel-loader'
 				}
 			}
 		]
@@ -51,8 +52,7 @@ let serverConfig = {
 	resolve: {
 		extensions: ['*', '.js', '.jsx', '.css', '.scss']
 	},
-	plugins: [
-	]
+	plugins: []
 };
 
 module.exports = {

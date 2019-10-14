@@ -1,13 +1,13 @@
-const webpack = require("webpack");
-const merge = require("webpack-merge");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const webpackCommon = require("./webpack.common");
+const webpackCommon = require('./webpack.common');
 
-let clientConfig = merge.smart(webpackCommon.clientConfig, {
+const clientConfig = merge.smart(webpackCommon.clientConfig, {
 	mode: 'production',
 	devtool: 'source-map',
 	module: {
@@ -30,12 +30,9 @@ let clientConfig = merge.smart(webpackCommon.clientConfig, {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: [
-			new TerserPlugin(),
-			new OptimizeCSSAssetsPlugin(),
-		],
+		minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
 		usedExports: true,
-		sideEffects: true,
+		sideEffects: true
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
@@ -51,24 +48,21 @@ let clientConfig = merge.smart(webpackCommon.clientConfig, {
 	}
 });
 
-let serverConfig = merge.smart(webpackCommon.clientConfig, {
+const serverConfig = merge.smart(webpackCommon.clientConfig, {
 	mode: 'production',
 	devtool: 'source-map',
 	module: {
 		rules: [
 			{
 				test: /\.s(a|c)ss$/,
-				loader: [ 'null-loader' ]
+				loader: ['null-loader']
 			}
 		]
 	},
 	optimization: {
-		minimize: false,
+		minimize: false
 	},
 	plugins: []
 });
 
-module.exports = [
-	clientConfig,
-	serverConfig
-];
+module.exports = [clientConfig, serverConfig];

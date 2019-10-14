@@ -12,7 +12,7 @@ const config = {
 	env: process.env.NODE_ENV || 'development',
 	server: {
 		host: process.env.HOST || '0.0.0.0',
-		port: process.env.PORT || 3000
+		port: process.env.PORT || 2000
 	},
 	mongoUrl: 'mongodb://localhost/foodDelivery',
 	jwtSecret: process.env.JWT_SECRET || 'sdfsdfsdf',
