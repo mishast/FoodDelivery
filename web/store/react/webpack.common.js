@@ -15,7 +15,21 @@ const clientConfig = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
+					options: {
+						"presets": [
+							["@babel/preset-env", {
+								"targets": {
+									"browsers": [
+										">0.25%",
+										"not ie 11",
+										"not op_mini all"
+									]
+								}
+							}],
+							"@babel/preset-react"
+						]
+					}
 				}
 			}
 		]
@@ -44,7 +58,12 @@ const serverConfig = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
+					options: {
+						"presets": [
+							"@babel/preset-react"
+						]
+					}
 				}
 			}
 		]

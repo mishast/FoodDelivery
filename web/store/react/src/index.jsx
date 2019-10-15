@@ -7,6 +7,8 @@ import configureStore from './store/configureStore';
 
 const initialState = window.__INITIAL_STATE__;
 
+delete window.__INITIAL_STATE__;
+
 let store = configureStore(initialState);
 
 ReactDOM.hydrate(

@@ -28,6 +28,12 @@ Return:
   "price": "10.99"
 }
 
+Url: /api/v1/product/:id/image
+Method: GET
+Auth: none
+Description: Get image for product
+Response: file data
+
 Url: /api/v1/customer
 Method: POST
 Auth: none

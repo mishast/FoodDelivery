@@ -4,12 +4,13 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import { StaticRouter, matchPath } from 'react-router-dom';
 import serialize from 'serialize-javascript';
 import { Provider } from 'react-redux';
 import webpackDevConfig from '../webpack.dev';
 import App from "./components/App";
-import productsActions from './actions/products';
 import configureStore from './store/configureStore';
+import SsrRoutes from './ssrRoutes';
 
 const app = express();
 
@@ -44,23 +45,33 @@ const renderPage = (html, initialState) => {
   `;
 };
 
-app.get('/', function (req, res) {
-	const store = configureStore();
+app.get('/*', function (req, res) {
+	const currentRoute = SsrRoutes.find(route => matchPath(req.url, route)) || {};
 
-	const loadProductsFn = productsActions.loadProducts();
+	if (currentRoute.action)
+	{
+		const store = configureStore();
 
-	loadProductsFn(store.dispatch).then( () => {
-		let componentHtml = ReactDOM.renderToString(
-			<Provider store={store}>
-				<App />
-			</Provider>
-		);
+		const loadDataAction = currentRoute.action;
 
-		let initialState = store.getState();
+		store.dispatch(loadDataAction()).then(() => {
+			const componentHtml = ReactDOM.renderToString(
+				<Provider store={store}>
+					<App />
+				</Provider>
+			);
 
-		let html = renderPage(componentHtml, initialState);
-		res.send(html);
-	});
+			const initialState = store.getState();
+
+			const html = renderPage(componentHtml, initialState);
+			res.send(html);
+		});
+
+		return;
+	}
+
+	let html = renderPage('', '');
+	res.send(html);
 });
 
 const server = app.listen(3000, function () {

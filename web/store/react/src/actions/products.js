@@ -7,15 +7,13 @@ const receiveProducts = products => ({
 });
 
 const loadProducts = () => {
-	return dispatch => {
-		return fetch('http://localhost:2000/api/v1/products').then(response => {
-			response.json().then( json => {
-				if (response.ok) {
-					console.log(json);
-					dispatch(receiveProducts(json));
-				}
-			});
-		});
+	return async dispatch => {
+		const response = await fetch('http://localhost:2000/api/v1/products');
+		if (response.ok) {
+			const json = await response.json();
+			console.log(json);
+			dispatch(receiveProducts(json));
+		}
 	};
 };
 
