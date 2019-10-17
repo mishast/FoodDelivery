@@ -15,15 +15,39 @@ mongo.connect(async db => {
 
 	await db.collection('products').insertMany([
 		{
-			title: 'title1',
-			description: 'description1',
-			image: 'https://image/url1',
+			title: 'Sushi and caviar mix',
+			description: 'Sushi & caviar mix',
+			image: {
+				id: '368d575c-f0ed-11e9-a713-2a2ae2dbcce4',
+				filename: 'sushi_3_1000x1600_yfdxvp_f25npp.jpg'
+			},
 			price: '10.99'
 		},
 		{
-			title: 'title2',
-			description: 'description2',
-			image: 'https://image/url2',
+			title: 'Mix of 23 sushi',
+			description: '23 Sushi Mix',
+			image: {
+				id: '56945ecc-f0ef-11e9-81b4-2a2ae2dbcce4',
+				filename: 'sushi_o8gcsm_fxgdij.jpg'
+			},
+			price: '11.99'
+		},
+		{
+			title: 'Pepperoni and tomato',
+			description: 'Pepperoni & tomato',
+			image: {
+				id: '4bb3a936-f0ef-11e9-81b4-2a2ae2dbcce4',
+				filename: 'pizza_2_duoq0f_zahy7o.jpg'
+			},
+			price: '11.99'
+		},
+		{
+			title: 'Vegan Baguette & Wrap Platter',
+			description: 'Why not try our new Vegan Baguette and Wrap platter - it has such amazing fillings that you won\'t regret it. ',
+			image: {
+				id: '6951ab9a-f0f0-11e9-81b4-2a2ae2dbcce4',
+				filename: 'veganSandwitchPlatter_Hero.jpg'
+			},
 			price: '11.99'
 		}
 	]);

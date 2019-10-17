@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config({});
 
@@ -16,7 +17,9 @@ const config = {
 	},
 	mongoUrl: 'mongodb://localhost/foodDelivery',
 	jwtSecret: process.env.JWT_SECRET || 'sdfsdfsdf',
-	showStacktrace
+	uploadDir: path.join(__dirname, '../upload'),
+	showStacktrace,
+	baseUrl: 'http://localhost:2000/'
 };
 
 export default config;

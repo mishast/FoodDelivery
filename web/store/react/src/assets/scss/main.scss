@@ -97,6 +97,7 @@ header {
     height: 100%;
     margin: 0px;
     border-radius: 4px;
+    object-fit: cover;
 }
 
 .product .bottom {
@@ -110,30 +111,33 @@ header {
     border-bottom-right-radius: 4px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+  	justify-content: space-between;
 }
 
 .product .bottom h1 {
     color: #fff;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
+	  margin-top: 15px;
 }
 
 .product .bottom h2 {
     color: #fff;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
-    margin-top: 8px;
+    margin-top: 5px;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
+	  line-height: 1.5;
 }
 
 .product .bottom .price {
     color: #fff;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
-    margin-top: 8px;
+    margin-top: 5px;
     font-weight: 800;
-    font-size: 14px;
+    font-size: 12px;
+	  line-height: 1.5;
 }
 
 
@@ -148,6 +152,7 @@ header {
     color: #fff;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     margin-top: 8px;
+	  margin-bottom: 20px;
     font-weight: 800;
     font-size: 14px;
 }

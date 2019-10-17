@@ -1,3 +1,5 @@
+import uuidv4 from 'uuid/v4';
+
 function login(req, res, next) {}
 
 function getOrders(req, res, next) {}
@@ -14,9 +16,12 @@ function deleteProduct(req, res, next) {}
 
 function getProduct(req, res, next) {}
 
-function addProductImage(req, res, next) {}
+const addProductImage = async (req, res, next) => {
+};
 
-function deleteProductImage(req, res, next) {}
+const deleteProductImage = (req, res, next) => {
+
+};
 
 export default {
 	login,
