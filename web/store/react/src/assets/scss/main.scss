@@ -19,6 +19,13 @@ body {
     justify-content: center;
 }
 
+.root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+}
+
 .header_shadow {
     position: fixed;
     top: 0;
@@ -62,15 +69,15 @@ header {
     color: #1e1e27;
 }
 
-.circle {
-    width: 40px;
-    height: 40px;
-    background: #eceff6;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.cartIcon {
+  	width: 40px;
+	  height: 40px;
+	  background: #eceff6;
+	  border-radius: 50%;
+	  display: flex;
+  	align-items: center;
+	  justify-content: center;
+	  position: relative;
 }
 
 .products {
@@ -94,14 +101,13 @@ header {
 
 .product img {
     width: 100%;
-    height: 100%;
+    height: 270px;
     margin: 0px;
-    border-radius: 4px;
     object-fit: cover;
 }
 
 .product .bottom {
-    background-color: rgba(66, 66, 66, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     bottom: 0;
     width: calc(100% - 32px);
@@ -115,7 +121,7 @@ header {
 }
 
 .product .bottom h1 {
-    color: #fff;
+    color: #000;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -123,7 +129,7 @@ header {
 }
 
 .product .bottom h2 {
-    color: #fff;
+    color: #444;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     margin-top: 5px;
     font-weight: 400;
@@ -155,4 +161,51 @@ header {
 	  margin-bottom: 20px;
     font-weight: 800;
     font-size: 14px;
+}
+
+footer {
+	height: 200px;
+	width: 100%;
+	background-color: #fff;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.year {
+	margin-top: 20px;
+}
+
+.footer_inside {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.copyright {
+	margin-left: 30px;
+}
+
+.contacts {
+	margin-right: 30px;
+}
+
+.cartBadge {
+	position: absolute;
+	top: -2px;
+	right: -3px;
+	border-radius: 50%;
+	background: red;
+	color: white;
+	font-size: 10px;
+	font-weight: bolder;
+	width: 15px;
+	height: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

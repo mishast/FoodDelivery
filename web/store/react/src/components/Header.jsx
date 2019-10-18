@@ -1,4 +1,5 @@
 import React from 'react';
+import CartIcon from './CartIcon';
 
 class Header extends React.Component {
 
@@ -9,7 +10,7 @@ class Header extends React.Component {
 					<header>
 						<div className="logo"><span className="logo_part1">Food</span><span className="logo_part2">Delivery</span>
 						</div>
-						<div className="circle"><a href=""><i className="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+						<CartIcon />
 					</header>
 				</div>
 			</div>
