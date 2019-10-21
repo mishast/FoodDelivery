@@ -12,9 +12,8 @@ body {
     font-size: 14px;
     line-height: 23px;
     font-weight: 400;
-/*    background-color: #f4f4f4; */
     color: #1e1e27;
-    background-color: #f3f0eb;
+    background-color: #fff;
     display: flex;
     justify-content: center;
 }
@@ -88,15 +87,15 @@ header {
 }
 
 .product {
-    background: #fff;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);
-    width: 330px;
-    height: 450px;
-    display: flex;
-    margin: 10px;
-    position: relative;
-    z-index: -10;
-    border-radius: 4px;
+		background: #fff;
+		box-shadow: 0 0 5px 1px rgb(222, 225, 225);
+		width: 330px;
+		height: 450px;
+		display: flex;
+		margin: 10px;
+		position: relative;
+		z-index: -10;
+		border-radius: 15px;
 }
 
 .product img {
@@ -148,7 +147,7 @@ header {
 
 
 .product .bottom .button {
-    background-color: #256f36;
+    background-color: #2566f9;
     width: 64px;
     line-height: 36px;
     padding: 0 16px;
@@ -166,13 +165,12 @@ header {
 footer {
 	height: 200px;
 	width: 100%;
-	background-color: #fff;
+	background-color: #eef1f8;
 	margin-top: 100px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .year {
