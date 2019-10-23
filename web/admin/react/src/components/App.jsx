@@ -8,7 +8,7 @@ const { Header, Footer, Sider, Content } = Layout;
 class App extends Component {
 	render() {
 		return (
-			<Layout>
+			<Layout style={{ height: '100vh' }}>
 				<Header>Header</Header>
 				<Layout>
 					<Sider>
@@ -72,9 +72,10 @@ class App extends Component {
 							</Menu.Item>
 						</Menu>
 					</Sider>
-					<Content>Content</Content>
+					<Content>Content
+						<Footer>Footer</Footer>
+					</Content>
 				</Layout>
-				<Footer>Footer</Footer>
 			</Layout>
 		);
 	}
