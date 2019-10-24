@@ -15,19 +15,6 @@
   background: rgb(45, 52, 70);
 }
 
-/*
-.menu {
-	padding-top: 35px;
-	padding-bottom: 35px;
-	background: transparent;
-}
-
-.submenu_item {
-	background-color: rgba(0, 0, 0, 0.3);
-	color: rgb(120, 129, 149);
-	background: red;
-}*/
-
 .logo {
 	display: flex;
 	background: rgba(0, 0, 0, 0.3);
