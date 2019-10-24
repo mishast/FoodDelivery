@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 	entry: './src/index.jsx',
@@ -39,7 +40,10 @@ const config = {
 		new HtmlWebpackPlugin({
 			title: 'Hello Webpack bundled JavaScript Project',
 			template: './src/index.html'
-		})
+		}),
+		new CopyWebpackPlugin([
+			{from:'src/assets',to:''}
+		]),
 	]
 };
 

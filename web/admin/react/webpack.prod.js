@@ -25,6 +25,20 @@ const config = merge.smart(webpackCommon, {
 						}
 					}
 				]
+			},
+			{
+				test: /\.less$/,
+				loader: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+					{
+						loader: 'less-loader',
+						options: {
+							sourceMap: false
+						}
+					}
+				]
 			}
 		]
 	},

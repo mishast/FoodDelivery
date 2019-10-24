@@ -1,0 +1,80 @@
+.header {
+	position: fixed;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	background-color: rgb(255, 255, 255);
+	z-index: 1000;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 0px 31px 0px 25px;
+	transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.sider {
+  background: rgb(45, 52, 70);
+}
+
+/*
+.menu {
+	padding-top: 35px;
+	padding-bottom: 35px;
+	background: transparent;
+}
+
+.submenu_item {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: rgb(120, 129, 149);
+	background: red;
+}*/
+
+.logo {
+	display: flex;
+	background: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	height: 70px;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo1 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+	font-weight: bolder;
+	color: red;
+}
+
+.logo2 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+	font-weight: bolder;
+	color: white;
+}
+
+.header_burger {
+	display: flex;
+	align-items: center;
+}
+
+.burgerBtn {
+	width: 24px;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	position: relative;
+	cursor: pointer;
+	outline: 0;
+	box-shadow: none;
+	border: none;
+}
+
+.burgerBtn::before {
+	content: "";
+	font-family: Ionicons;
+	font-size: 26px;
+	color: inherit;
+	line-height: 0;
+	position: absolute;
+}
