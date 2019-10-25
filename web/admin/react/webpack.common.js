@@ -16,7 +16,7 @@ const config = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						"presets": [
+						presets: [
 							["@babel/preset-env", {
 								"targets": {
 									"browsers": [
@@ -27,7 +27,12 @@ const config = {
 								}
 							}],
 							"@babel/preset-react"
-						]
+						],
+						plugins: [
+							[
+								"@babel/plugin-proposal-class-properties"
+							]
+						],
 					}
 				}
 			}
