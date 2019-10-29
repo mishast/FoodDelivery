@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
 import { connect } from 'react-redux';
-import { setMobile } from '../actions';
+import { setMobile } from '../../actions';
 
 class MobileDetector extends Component {
 

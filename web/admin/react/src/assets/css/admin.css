@@ -65,3 +65,21 @@
 	line-height: 0;
 	position: absolute;
 }
+
+.contentWrapper {
+	display: flex;
+	padding: 110px 20px;
+	flex-flow: row wrap;
+	overflow: hidden;
+}
+
+.content {
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	height: 100%;
+	padding: 35px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(233, 233, 233);
+	border-image: initial;
+}

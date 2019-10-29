@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Layout, Drawer } from 'antd';
-import AdminMenu from './AdminMenu';
+import AdminMenu from '../AdminMenu';
 import SiderLogo from './SiderLogo';
 import { connect } from 'react-redux';
-import { closeDrawer } from '../actions';
+import { closeDrawer } from '../../actions';
 
 class Sider extends Component {
 

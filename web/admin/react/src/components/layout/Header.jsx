@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import {connect} from "react-redux";
-import {toggleDrawer} from "../actions";
+import {toggleDrawer} from "../../actions";
 
 class Header extends Component {
 	onBurgerClicked = () => {

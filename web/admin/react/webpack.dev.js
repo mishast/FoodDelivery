@@ -41,7 +41,8 @@ const config = merge.smart(webpackCommon, {
 	plugins: [new webpack.HotModuleReplacementPlugin()],
 	devServer: {
 		contentBase: './dist',
-		hot: true
+		hot: true,
+		historyApiFallback: true
 	}
 });
 

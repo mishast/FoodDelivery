@@ -18,16 +18,16 @@ export default (state = initialState, action) => {
 				drawerVisible: !state.drawerVisible
 			};
 		case types.SET_MOBILE:
-			if (state.isMobile != action.isMobile) {
+			if (state.isMobile !== action.isMobile) {
 				return {
 					...state,
 					isMobile: action.isMobile,
 					drawerVisible: false
 				};
 			}
-			else {
-				return state;
-			}
+
+			return state;
+
 		default:
 			return state;
 	}
