@@ -1,5 +1,6 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
+import OrdersBase from './OrdersBase';
 
 class Orders extends Component {
 	constructor(props) {

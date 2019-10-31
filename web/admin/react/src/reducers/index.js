@@ -2,7 +2,9 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
 	drawerVisible: false,
-	isMobile: false
+	isMobile: false,
+	authorized: true,
+	token: null
 };
 
 export default (state = initialState, action) => {
@@ -27,6 +29,20 @@ export default (state = initialState, action) => {
 			}
 
 			return state;
+
+		case types.LOGIN:
+			return {
+				...state,
+				authorized: true,
+				token: action.token
+			};
+
+		case types.LOGOUT:
+			return {
+				...state,
+				authorized: false,
+				token: null
+			};
 
 		default:
 			return state;

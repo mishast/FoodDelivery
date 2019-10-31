@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Menu, Icon } from 'antd';
+import {logout} from "../actions";
 
 const { SubMenu } = Menu;
 
 class AdminMenu extends Component {
+	logout = () => {
+		this.props.logout();
+	};
+
 	render() {
 		return (
 			<Menu
@@ -28,13 +34,13 @@ class AdminMenu extends Component {
 					}
 				>
 					<Menu.Item key="2_1" className="submenu_item">
-						<Link to="/orders/new">
+						<Link to="/admin/orders/nex">
 							<Icon type="fire" />
 							<span>New</span>
 						</Link>
 					</Menu.Item>
 					<Menu.Item key="2_2">
-						<Link to="/orders/verified">
+						<Link to="/admin/orders/verified">
 							<Icon type="safety-certificate" />
 							<span>Verified</span>
 						</Link>
@@ -93,16 +99,24 @@ class AdminMenu extends Component {
 					</Menu.Item>
 				</SubMenu>
 				<Menu.Item key="4">
-					<Icon type="team" />
-					<span>Carriers</span>
+					<Link to="/404">
+						<Icon type="team" />
+						<span>Carriers</span>
+					</Link>
 				</Menu.Item>
 				<Menu.Item key="5">
-					<Icon type="logout" />
-					<span>Logout</span>
+					<span onClick={this.logout}>
+						<Icon type="logout" />
+						<span>Logout</span>
+					</span>
 				</Menu.Item>
 			</Menu>
 		)
 	}
 }
 
-export default AdminMenu;
+const mapDispatchToProps = {
+	logout
+};
+
+export default connect(null, mapDispatchToProps)(AdminMenu);

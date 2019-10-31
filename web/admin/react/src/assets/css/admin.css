@@ -83,3 +83,111 @@
 	border-color: rgb(233, 233, 233);
 	border-image: initial;
 }
+
+.p404container {
+	display: flex;
+	background: #2d3446;
+	width: 100%;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.p404title {
+	font-size: 30px;
+	font-weight: 700;
+	color: white;
+}
+
+.p404text {
+	font-size: 14px;
+	color: white;
+}
+
+.loginPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	background: #f2f4f8;
+}
+
+.loginContainer {
+	width: 380px;
+	display: flex;
+	padding: 40px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 38px 0 rgba(22,21,55,.06), 0 0 21px 0 rgba(22,21,55,.03);
+	border-radius: 5px;
+}
+
+.loginTitle {
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #595d6e;
+	/*margin-top: 1rem;*/
+	/*margin-bottom: 3rem;*/
+	margin: 0 auto;
+}
+
+.loginControlGroup {
+	padding: 0;
+	/*margin: 1.5rem auto 0;*/
+	/*margin: 0 auto;*/
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.loginControl {
+	height: 46px;
+}
+
+/*
+.loginControl {
+	height: 46px;
+	border: none;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin-top: 1.5rem;
+	background: rgba(235,237,242,.4);
+}
+*/
+
+.loginValidationError {
+	display: block;
+	width: 100%;
+	height: 1rem;
+	margin-top: .25rem;
+	font-size: 80%;
+	color: #fd397a;
+}
+
+.loginActions {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.loginHint {
+	color: #8d8d8d;
+	font-size: 12px;
+}
+
+.loginSignInButton {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 2rem;
+}

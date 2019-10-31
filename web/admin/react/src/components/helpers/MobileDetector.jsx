@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
 import { connect } from 'react-redux';
 import { setMobile } from '../../actions';
+import { withRouter } from "react-router";
 
 class MobileDetector extends Component {
 
@@ -30,4 +31,4 @@ const mapDispatchToProps = {
 	setMobile
 };
 
-export default connect(null, mapDispatchToProps)(MobileDetector);
+export default withRouter(connect(null, mapDispatchToProps)(MobileDetector));

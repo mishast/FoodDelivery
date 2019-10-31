@@ -1,27 +1,60 @@
 import React, { Component } from 'react';
-import MobileDetector from "./helpers/MobileDetector";
+import { connect } from 'react-redux';
 import {BrowserRouter} from "react-router-dom";
-import { Route, Switch } from "react-router";
+import { Route, Redirect, Switch } from "react-router";
+import MobileDetector from "./helpers/MobileDetector";
 import AdminApp from "./AdminApp";
-import NotFoundSwitch from "./helpers/NotFoundSwitch";
 import Login from "./pages/Login";
-import RedirectToNotFound from "./helpers/RedirectToNotFound";
+import NotFound from "./pages/NotFound";
 
 class App extends Component {
 	render() {
+		console.log(this.props);
 		return (
 			<BrowserRouter>
 				<MobileDetector>
-					<NotFoundSwitch>
-							<Switch>
+					{
+						this.props.authorized ?
+							(
+								<Switch>
+									<Route path="/404" component={NotFound} />
+									<Route path="/admin/login" component={Login} />
 									<Route path="/admin" component={AdminApp} />
-									<RedirectToNotFound />
-							</Switch>
-					</NotFoundSwitch>
+									<Route path="/">
+										<Redirect to="/admin" />
+									</Route>
+									<Route>
+										<Redirect to="/404" />
+									</Route>
+								</Switch>
+							)
+							:
+							(
+								<Switch>
+									<Route path="/404" component={NotFound} />
+									<Route path="/admin/login" component={Login} />
+									<Route path="/admin">
+										<Redirect to="/admin/login" />
+									</Route>
+									<Route path="/">
+										<Redirect to="/admin" />
+									</Route>
+									<Route>
+										<Redirect to="/404" />
+									</Route>
+								</Switch>
+							)
+					}
 				</MobileDetector>
 			</BrowserRouter>
 		);
 	}
 }
 
-export default App;
+function mapStateToProps(state) {
+	return {
+		authorized: state.authorized,
+	};
+}
+
+export default connect(mapStateToProps, null)(App);
