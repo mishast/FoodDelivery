@@ -14,7 +14,6 @@ class Login extends Component {
 
 	onLogin = (values) => {
 		agent.login(values.username, values.password).then((response) => {
-			console.log('LOGIN!');
 			console.log(response);
 			if (response.result === "success") {
 				this.props.login(response.token);
@@ -100,13 +99,6 @@ class Login extends Component {
 							</div>
 							<div className="loginActions">
 								<Button type="primary" className="loginSignInButton" onClick={handleSubmit}>Sign In</Button>
-							</div>
-							<div className="loginActions"
-									 style={{'display': 'flex', 'flexDirection': 'row', 'background': 'rgba(0,0,0,0.1)'}}>
-								<Button type="primary" className="loginSignInButton" style={{margin: '5px'}}
-												onClick={this.onLogin}>Login</Button>
-								<Button type="primary" className="loginSignInButton" style={{margin: '5px'}}
-												onClick={this.onLogout}>Logout</Button>
 							</div>
 							<div className="loginActions">
 								<div className="loginHint">Hint: demo / demo</div>

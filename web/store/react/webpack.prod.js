@@ -29,7 +29,7 @@ const clientConfig = merge.smart(webpackCommon.clientConfig, {
 		]
 	},
 	optimization: {
-		minimize: false,
+		minimize: true,
 		minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
 		usedExports: true,
 		sideEffects: true

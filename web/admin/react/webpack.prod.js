@@ -43,7 +43,7 @@ const config = merge.smart(webpackCommon, {
 		]
 	},
 	optimization: {
-		minimize: false,
+		minimize: true,
 		minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
 		usedExports: true,
 		sideEffects: true
