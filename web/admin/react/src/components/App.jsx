@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import { Route, Redirect, Switch } from "react-router";
 import MobileDetector from "./helpers/MobileDetector";
 import AdminApp from "./AdminApp";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import NotFound from "./pages/NotFound";
 
 class App extends Component {

@@ -138,6 +138,14 @@
 	margin: 0 auto;
 }
 
+.loginError {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
 .loginControlGroup {
 	padding: 0;
 	/*margin: 1.5rem auto 0;*/

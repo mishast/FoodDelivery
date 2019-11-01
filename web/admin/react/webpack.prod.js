@@ -13,7 +13,7 @@ const config = merge.smart(webpackCommon, {
 	module: {
 		rules: [
 			{
-				test: /\.s(a|c)ss$/,
+				test: /\.(sa|sc|c)ss$/,
 				loader: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
@@ -43,7 +43,7 @@ const config = merge.smart(webpackCommon, {
 		]
 	},
 	optimization: {
-		minimize: true,
+		minimize: false,
 		minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
 		usedExports: true,
 		sideEffects: true

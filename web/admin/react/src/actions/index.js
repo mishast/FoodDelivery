@@ -9,6 +9,6 @@ export const setMobile = isMobile => ({
 	isMobile
 });
 
-export const login = (token) => ({ type: types.LOGIN, token: token });
+export const login = token => ({ type: types.LOGIN, token });
 
 export const logout = () => ({ type: types.LOGOUT });

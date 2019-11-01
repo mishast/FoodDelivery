@@ -1,6 +1,33 @@
 import uuidv4 from 'uuid/v4';
+import config from "../../../../config";
+import jwt from "jsonwebtoken";
 
-function login(req, res, next) {}
+function login(req, res) {
+	const authData = req.body;
+
+	let response = {
+		result: 'error',
+		errorText: 'Invalid login or password'
+	};
+
+	if (authData.login === 'demo' && authData.password === 'demo') {
+		const payload = {
+			user_id: 'sdfsdfsd',
+			role: 'admin'
+		};
+		const secret = config.jwtSecret;
+		const jwtToken = jwt.sign(payload, secret);
+
+		response = {
+			result: 'success',
+			user_id: 'sdfsdfsd',
+			role: 'admin',
+			token: jwtToken
+		};
+	}
+
+	res.status(200).json(response);
+}
 
 function getOrders(req, res, next) {}
 
