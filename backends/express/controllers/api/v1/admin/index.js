@@ -1,6 +1,8 @@
 import uuidv4 from 'uuid/v4';
 import config from "../../../../config";
+import checkAdminAuth from '../../../../utils/checkAdminAuth';
 import jwt from "jsonwebtoken";
+import errorHandler from "../../../../utils/errorHandler";
 
 function login(req, res) {
 	const authData = req.body;
@@ -29,13 +31,45 @@ function login(req, res) {
 	res.status(200).json(response);
 }
 
-function getOrders(req, res, next) {}
+const getOrders = [
+	checkAdminAuth,
+	async (req, res) => {
+		try {
+			const { db } = req.app;
+
+			const products = await db
+				.collection('orders')
+				.find({})
+				.toArray();
+
+			res.status(200).json(products);
+		} catch (err) {
+			errorHandler(err, req, res);
+		}
+	}
+];
 
 function getOrder(req, res, next) {}
 
 function setOrderStatus(req, res, next) {}
 
-function getProducts(req, res, next) {}
+const getProducts = [
+	checkAdminAuth,
+	async (req, res) => {
+		try {
+			const { db } = req.app;
+
+			const products = await db
+				.collection('products')
+				.find({})
+				.toArray();
+
+			res.status(200).json(products);
+		} catch (err) {
+			errorHandler(err, req, res);
+		}
+	}
+];
 
 function createOrUpdateProduct(req, res, next) {}
 

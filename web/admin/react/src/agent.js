@@ -42,7 +42,27 @@ const login = async (username, password) => {
 	}
 };
 
+const getProducts = async () => {
+	try {
+		const response = await axios.get(getApiUrl('/products'), {
+			headers: {
+				Authorization: "Bearer " + token
+			}
+		});
+
+		if (response.status !== 200) {
+			return null;
+		}
+
+		return response.data;
+
+	} catch (e) {
+		return null;
+	}
+};
+
 export default {
 	setToken,
-	login
+	login,
+	getProducts
 };

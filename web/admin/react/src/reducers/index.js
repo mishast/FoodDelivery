@@ -4,7 +4,8 @@ const initialState = {
 	drawerVisible: false,
 	isMobile: false,
 	authorized: true,
-	token: null
+	token: null,
+	products: null
 };
 
 export default (state = initialState, action) => {
@@ -42,6 +43,12 @@ export default (state = initialState, action) => {
 				...state,
 				authorized: false,
 				token: null
+			};
+
+		case types.RECEIVE_PRODUCTS:
+			return {
+				...state,
+				products: action.products
 			};
 
 		default:
