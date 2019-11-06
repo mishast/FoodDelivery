@@ -9,7 +9,7 @@ import serialize from 'serialize-javascript';
 import { Provider } from 'react-redux';
 import webpackDevConfig from '../webpack.dev';
 import App from "./components/App";
-import configureStore from './store/configureStore';
+import { configureServerStore } from './store/configureStore';
 import SsrRoutes from './ssrRoutes';
 
 const app = express();
@@ -50,7 +50,7 @@ app.get('/*', function (req, res) {
 
 	if (currentRoute.action)
 	{
-		const store = configureStore();
+		const store = configureServerStore();
 
 		const loadDataAction = currentRoute.action;
 

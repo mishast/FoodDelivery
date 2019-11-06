@@ -1,5 +1,6 @@
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 import * as types from '../constants/actionTypes';
+import config from '../config';
 
 const receiveProducts = products => ({
 	type: types.RECEIVE_PRODUCTS,
@@ -8,12 +9,9 @@ const receiveProducts = products => ({
 
 const loadProducts = () => {
 	return async dispatch => {
-		const response = await fetch('http://localhost:2000/api/v1/products');
-		if (response.ok) {
-			const json = await response.json();
-			console.log(json);
-			dispatch(receiveProducts(json));
-		}
+		const products = await axios.get(`${config.apiBaseUrl}api/v1/products`);
+		console.log(products);
+		dispatch(receiveProducts(products));
 	};
 };
 

@@ -1,7 +1,9 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-	products: []
+	products: [],
+	customer: null,
+	cart: []
 };
 
 export default (state = initialState, action) => {
@@ -12,6 +14,16 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				products: action.products
+			};
+		case types.SET_CUSTOMER:
+			return {
+				...state,
+				customer: action.customer
+			};
+		case types.SET_CART:
+			return {
+				...state,
+				cart: action.cart
 			};
 		default:
 			return state;
