@@ -20,24 +20,36 @@ const initApp = () => {
 
 			console.log('load cart from server');
 
-			const cart = await axios.get(`${config.apiBaseUrl}api/v1/customer/${customer.customer_id}/cart`,
+			const cartResponse = await axios.get(`${config.apiBaseUrl}api/v1/customer/${customer.customer_id}/cart`,
 				{
-					headers: {'Authorization': "bearer " + token}
+					headers: {'Authorization': "bearer " + customer.token}
 				}
 			);
 
-			console.log('cart:' );
-			console.log(cart);
+			if (cartResponse.status === 200) {
+				const cart = cartResponse.data;
 
-			dispatch(customerActions.setCart(cart));
+				console.log('cart:');
+				console.log(cart);
+
+				dispatch(customerActions.setCart(cart));
+			} else {
+				console.log('get cart error');
+			}
 		} else {
 			console.log('create new customer');
-			customer = await axios.get(`${config.apiBaseUrl}api/v1/customer`);
-			console.log(customer);
-			dispatch(customerActions.setCustomer(customer));
-			const cart = [];
-			console.log('set empty cart');
-			dispatch(customerActions.setCart(cart));
+			const customerResponse = await axios.get(`${config.apiBaseUrl}api/v1/customer`);
+			if (customerResponse.status === 200) {
+				customer = customerResponse.data;
+				console.log('customer:');
+				console.log(customer);
+				dispatch(customerActions.setCustomer(customer));
+				const cart = [];
+				console.log('set empty cart');
+				dispatch(customerActions.setCart(cart));
+			} else {
+				console.log('create customer error');
+			}
 		}
 	};
 };

@@ -6,22 +6,15 @@ import './assets/scss/main.scss';
 import { configureClientStore } from './store/configureStore';
 import initActions from './actions/init';
 
-const initialState = window.__INITIAL_STATE__;
+let initialState = window.__INITIAL_STATE__;
 
 delete window.__INITIAL_STATE__;
 
-initialState.customer = null;
-
-const customerId = window.localStorage.getItem('customerId');
-const customerToken = window.localStorage.getItem('customerToken');
-
-if (customerId && customerToken) {
-	console.log('load customer from storage');
-	initialState.customer = {
-		customer_id: customerId,
-		token: customerToken
-	};
-}
+initialState = {
+	...initialState,
+	customer: null,
+	cart: []
+};
 
 let store = configureClientStore(initialState);
 

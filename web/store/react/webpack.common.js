@@ -17,7 +17,7 @@ const clientConfig = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						"presets": [
+						presets: [
 							["@babel/preset-env", {
 								"targets": {
 									"browsers": [
@@ -27,11 +27,15 @@ const clientConfig = {
 									]
 								},
 								"useBuiltIns": "usage",
-								"corejs": 3,
+								"corejs": 3
 							}],
-
 							"@babel/preset-react"
-						]
+						],
+						plugins: [
+							[
+								"@babel/plugin-proposal-class-properties"
+							]
+						],
 					}
 				}
 			}
@@ -65,7 +69,12 @@ const serverConfig = {
 					options: {
 						"presets": [
 							"@babel/preset-react"
-						]
+						],
+						plugins: [
+							[
+								"@babel/plugin-proposal-class-properties"
+							]
+						],
 					}
 				}
 			}

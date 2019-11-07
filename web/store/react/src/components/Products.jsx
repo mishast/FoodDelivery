@@ -14,7 +14,7 @@ class Products extends React.Component {
 				<div className="products">
 					{
 						this.props.products.map( (item) => (
-							<Product key={item.prodId} image={item.image} title={item.title} description={item.description} price={item.price} />
+							<Product key={item._id} productId={item._id} image={item.image} title={item.title} description={item.description} price={item.price} />
 						))
 					}
 				</div>

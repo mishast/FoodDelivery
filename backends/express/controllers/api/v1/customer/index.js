@@ -104,6 +104,10 @@ const updateCartItem = [
 
 			const newItem = req.body;
 
+			if (newItem.qty < 0) {
+				throw new Error('qty < 0');
+			}
+
 			const product = await db.collection('products').findOne({
 				_id: new ObjectID(newItem.product_id)
 			});
@@ -115,16 +119,8 @@ const updateCartItem = [
 			const itemIndex = items.findIndex(item => item.product_id === newItem.product_id);
 
 			if (itemIndex >= 0) {
-				if (items[itemIndex].qty + newItem.qty < 0) {
-					throw new Error('qty < 0');
-				}
-
-				items[itemIndex].qty += newItem.qty;
+				items[itemIndex].qty = newItem.qty;
 			} else {
-				if (newItem.qty <= 0) {
-					throw new Error('qty <= 0');
-				}
-
 				items.push({
 					product_id: newItem.product_id,
 					qty: newItem.qty
@@ -137,7 +133,9 @@ const updateCartItem = [
 				.collection('carts')
 				.updateOne({ _id: new ObjectID(customerId) }, { $set: { items: newItems } });
 
-			res.status(200).send();
+			const responseItems = await getFullItems(db, newItems);
+
+			res.status(200).json(responseItems);
 		} catch (err) {
 			errorHandler(err, req, res);
 		}

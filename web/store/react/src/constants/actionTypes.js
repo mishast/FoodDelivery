@@ -2,3 +2,4 @@ export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const SET_CUSTOMER = 'SET_CUSTOMER';
 export const SET_CART = 'SET_CART';
+export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
