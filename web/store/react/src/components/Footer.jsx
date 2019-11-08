@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from "./Logo";
 
 class Header extends React.Component {
 
@@ -8,8 +9,7 @@ class Header extends React.Component {
 				<div className="container">
 					<div className="footer_inside">
 						<div className="copyright">
-							<div className="logo"><span className="logo_part1">Food</span><span className="logo_part2">Delivery</span>
-							</div>
+							<Logo />
 							<div className="year">© 2019</div>
 						</div>
 						<div className="contacts">

@@ -31,7 +31,7 @@ body {
     left: 0;
     background: #fff;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -53,6 +53,11 @@ header {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.logo_link
+{
+	text-decoration: none;
 }
 
 .logo
@@ -164,7 +169,7 @@ header {
 
 footer {
 	height: 200px;
-	width: 100%;
+	width: 100vw;
 	background-color: #eef1f8;
 	margin-top: 100px;
 	display: flex;
@@ -206,4 +211,110 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.cartCenter {
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.cartContainer {
+	background: #fff;
+	box-shadow: 0 0 5px 1px #dee1e1;
+	min-width: 600px;
+	max-width: 1024px;
+	position: relative;
+	border-radius: 15px;
+	padding: 30px;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cartTitle {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.emptyCartContainer {
+	margin-top: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.emptyCartImg {
+	width: 200px;
+}
+
+.emptyCartText {
+	font-size: 30px;
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.emptyCartBackButton {
+	background-color: #2566f9;
+	line-height: 36px;
+	padding: 0 30px;
+	vertical-align: baseline;
+	text-align: center;
+	color: #fff;
+	font-family: Roboto, Helvetica Neue, sans-serif;
+	font-weight: 800;
+	font-size: 14px;
+	border: 0px;
+}
+
+.cartTable {
+	width: 100%;
+}
+
+.cartTable td {
+	padding: 1rem;
+}
+
+.cartHead {
+	background: #f8f9fa;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.cartProduct {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.cartProductImg {
+	width: 50px;
+}
+
+.cartProductName {
+	display: inline-block;
+	margin-left: 1rem;
+}
+
+
+.checkoutButton {
+	background-color: #2566f9;
+	line-height: 36px;
+	padding: 0 30px;
+	vertical-align: baseline;
+	text-align: center;
+	color: #fff;
+	font-family: Roboto,Helvetica Neue,sans-serif;
+	font-weight: 800;
+	font-size: 14px;
+	border: 0;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }

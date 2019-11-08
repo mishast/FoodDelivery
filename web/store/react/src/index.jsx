@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
@@ -21,8 +22,11 @@ let store = configureClientStore(initialState);
 store.dispatch(initActions.initApp());
 
 ReactDOM.hydrate(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+	<BrowserRouter>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</BrowserRouter>
+	,
 	document.getElementById("app")
 );

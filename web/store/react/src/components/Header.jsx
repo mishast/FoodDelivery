@@ -1,5 +1,6 @@
 import React from 'react';
 import CartIcon from './CartIcon';
+import Logo from "./Logo";
 
 class Header extends React.Component {
 
@@ -8,8 +9,7 @@ class Header extends React.Component {
 			<div className="header_shadow">
 				<div className="container">
 					<header>
-						<div className="logo"><span className="logo_part1">Food</span><span className="logo_part2">Delivery</span>
-						</div>
+						<Logo />
 						<CartIcon />
 					</header>
 				</div>

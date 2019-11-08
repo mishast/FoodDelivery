@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
-import customerTokenMiddleware from '../middlewares/customerTokenMiddleware'
+import customerTokenMiddleware from '../middlewares/customerTokenMiddleware';
 
 export const configureServerStore = initialState => {
 	const middleware = [thunk];

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import { Link } from "react-router-dom";
 
 class CartIcon extends React.Component {
 
@@ -8,14 +9,16 @@ class CartIcon extends React.Component {
 		let itemsCount = this.props.cart.reduce((acc, item) => acc + item.qty, 0);
 
 		return (
-			<div className="cartIcon">
-				<a href={cartLink}><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
-				{itemsCount > 0 &&
-					<div className="cartBadge">
-						{itemsCount}
-					</div>
-				}
-			</div>
+			<Link to="/cart">
+				<div className="cartIcon">
+					<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+					{itemsCount > 0 &&
+						<div className="cartBadge">
+							{itemsCount}
+						</div>
+					}
+				</div>
+			</Link>
 		);
 	}
 }

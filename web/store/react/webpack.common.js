@@ -1,6 +1,7 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const clientConfig = {
 	entry: './src/index.jsx',
@@ -45,6 +46,9 @@ const clientConfig = {
 		extensions: ['*', '.js', '.jsx', '.css', '.scss']
 	},
 	plugins: [
+		new CopyWebpackPlugin([
+			{from: 'src/assets/img', to:'img'}
+		]),
 		new HtmlWebpackPlugin({
 			title: 'Hello Webpack bundled JavaScript Project',
 			template: './src/index.html'

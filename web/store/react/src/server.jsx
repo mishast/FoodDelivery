@@ -56,9 +56,11 @@ app.get('/*', function (req, res) {
 
 		store.dispatch(loadDataAction()).then(() => {
 			const componentHtml = ReactDOM.renderToString(
-				<Provider store={store}>
-					<App />
-				</Provider>
+				<StaticRouter location={req.url} context={{}}>
+					<Provider store={store}>
+						<App />
+					</Provider>
+				</StaticRouter>
 			);
 
 			const initialState = store.getState();

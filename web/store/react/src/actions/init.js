@@ -20,9 +20,10 @@ const initApp = () => {
 
 			console.log('load cart from server');
 
-			const cartResponse = await axios.get(`${config.apiBaseUrl}api/v1/customer/${customer.customer_id}/cart`,
+			const cartResponse = await axios.get(
+				`${config.apiBaseUrl}api/v1/customer/${customer.customer_id}/cart`,
 				{
-					headers: {'Authorization': "bearer " + customer.token}
+					headers: { Authorization: `bearer ${customer.token}` }
 				}
 			);
 
@@ -38,7 +39,9 @@ const initApp = () => {
 			}
 		} else {
 			console.log('create new customer');
-			const customerResponse = await axios.get(`${config.apiBaseUrl}api/v1/customer`);
+			const customerResponse = await axios.get(
+				`${config.apiBaseUrl}api/v1/customer`
+			);
 			if (customerResponse.status === 200) {
 				customer = customerResponse.data;
 				console.log('customer:');
