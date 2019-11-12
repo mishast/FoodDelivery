@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import {Link} from "react-router-dom";
 import CartTable from "./CartTable";
+import CartForm from "./CartForm";
 
 class Cart extends React.Component {
 
@@ -18,6 +19,7 @@ class Cart extends React.Component {
 					<CartTable />
 					<Link to="/"><button className="checkoutButton">Checkout</button></Link>
 				</div>
+				<CartForm/>
 			</React.Fragment>
 		);
 	}
