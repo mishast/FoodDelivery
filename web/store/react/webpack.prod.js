@@ -25,6 +25,13 @@ const clientConfig = merge.smart(webpackCommon.clientConfig, {
 						}
 					}
 				]
+			},
+			{
+				test: /\.css$/,
+				loader: [
+					MiniCssExtractPlugin.loader,
+					'css-loader'
+				]
 			}
 		]
 	},
@@ -55,6 +62,10 @@ const serverConfig = merge.smart(webpackCommon.clientConfig, {
 		rules: [
 			{
 				test: /\.s(a|c)ss$/,
+				loader: ['null-loader']
+			},
+			{
+				test: /\.css$/,
 				loader: ['null-loader']
 			}
 		]

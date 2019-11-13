@@ -12,6 +12,14 @@ const setCart = cart => ({
 	cart
 });
 
+const checkoutStart = () => ({
+	type: types.CHECKOUT_START
+});
+
+const checkoutEnd = () => ({
+	type: types.CHECKOUT_END
+});
+
 const addCartItem = productId => {
 	return async (dispatch, getState) => {
 		const { customer, cart } = getState();
@@ -79,9 +87,36 @@ const updateCartItem = (productId, qty) => {
 	};
 };
 
+const checkout = (checkoutInfo) => {
+	return async (dispatch, getState) => {
+		const { customer } = getState();
+
+		dispatch(checkoutStart());
+
+		const auth = {
+			headers: { Authorization: `bearer ${customer.token}` }
+		};
+
+		const checkoutResponse = await axios.post(
+			`${config.apiBaseUrl}api/v1/customer/${customer.customer_id}/cart/checkout`,
+			checkoutInfo,
+			auth
+		);
+
+		if (checkoutResponse.status === 200) {
+			dispatch(checkoutEnd());
+		} else {
+			console.log(
+				`checkout error. Status = ${checkoutResponse.status}`
+			);
+		}
+	}
+};
+
 export default {
 	setCustomer,
 	setCart,
 	updateCartItem,
-	addCartItem
+	addCartItem,
+	checkout
 };

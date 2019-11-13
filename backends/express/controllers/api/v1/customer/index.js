@@ -160,9 +160,12 @@ const checkoutCart = [
 
 			const orderItems = await getFullItems(db, cart.items);
 
+			const orderInfo = req.body;
+
 			const insertedOrder = await db.collection('orders').insertOne({
 				status: 'new',
-				items: orderItems
+				items: orderItems,
+				orderInfo
 			});
 
 			const response = {

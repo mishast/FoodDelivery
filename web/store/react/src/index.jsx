@@ -14,7 +14,10 @@ delete window.__INITIAL_STATE__;
 initialState = {
 	...initialState,
 	customer: null,
-	cart: []
+	cart: [],
+	checkout: {
+		isSubmitting: false
+	}
 };
 
 let store = configureClientStore(initialState);

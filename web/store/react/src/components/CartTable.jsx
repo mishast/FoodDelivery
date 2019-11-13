@@ -42,7 +42,12 @@ class CartTable extends React.Component {
 					<td className="cartHead">Price</td>
 					<td className="cartHead">Quantity</td>
 					<td className="cartHead">Total</td>
-					<td className="cartHead">Remove</td>
+					<td className="cartHead" style={{width: '100px'}}>
+					{
+						!this.props.disableDelete &&
+						('Remove')
+					}
+					</td>
 				</tr>
 				</thead>
 				{
@@ -64,7 +69,17 @@ class CartTable extends React.Component {
 								<td className="cartPrice"><strong>${item.price}</strong></td>
 								<td><strong>{item.qty}</strong></td>
 								<td className="cartPrice"><strong>${total}</strong></td>
-								<td><i className="fa fa-trash" aria-hidden="true" onClick={() => {this.handleDelete(item.product_id)}}/></td>
+								<td>
+								{
+									!this.props.disableDelete &&
+									(
+
+												<i className="fa fa-trash" aria-hidden="true" onClick={() => {
+													this.handleDelete(item.product_id)
+												}} />
+									)
+								}
+								</td>
 							</tr>
 						);
 					})

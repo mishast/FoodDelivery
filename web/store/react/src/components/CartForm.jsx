@@ -1,12 +1,29 @@
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import React from 'react';
 import { connect } from 'react-redux'
+import customerActions from "../actions/customer";
 
 class Cart extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
+
+	phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
+
+	validationSchema = Yup.object().shape({
+		name: Yup.string()
+			.required('Required'),
+		phone: Yup.string()
+			.required('Required')
+			.matches(this.phoneRegExp, 'Phone number is not valid'),
+		address: Yup.string()
+			.required('Required')
+	});
+
+	handleCompleteOrder = (values) => {
+		this.props.checkout(values);
+	};
 
 	render() {
 		return (
@@ -14,24 +31,16 @@ class Cart extends React.Component {
 				<div className="cartTitle">Your contact data</div>
 				<div className="cartFormContainer">
 					<Formik
-						initialValues={{ email: '', password: '' }}
-						validate={values => {
-							const errors = {};
-							if (!values.email) {
-								errors.email = 'Required';
-							} else if (
-								!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-							) {
-								errors.email = 'Invalid email address';
+						initialValues={
+							{
+								name: '',
+								phone: '',
+								address: '',
+								comment: ''
 							}
-							return errors;
-						}}
-						onSubmit={(values, { setSubmitting }) => {
-							setTimeout(() => {
-								alert(JSON.stringify(values, null, 2));
-								setSubmitting(false);
-							}, 400);
-						}}
+						}
+						validationSchema={this.validationSchema}
+						onSubmit={this.handleCompleteOrder}
 					>
 						{({
 								values,
@@ -39,29 +48,39 @@ class Cart extends React.Component {
 								touched,
 								handleChange,
 								handleBlur,
-								handleSubmit,
-								isSubmitting,
-								/* and other goodies */
+								handleSubmit
 							}) => (
 								<form onSubmit={handleSubmit}>
-									<div>
+									<div className="field">
 										<label>How we should call you</label>
-										<input name="customerName" type="text" />
+										<input name="name" type="text" onChange={handleChange} onBlur={handleBlur} value={values.name}/>
+										<div className="errors">
+										{touched.name && errors.name}
+										</div>
 									</div>
-									<div>
+									<div className="field">
 										<label>Your phone number</label>
-										<input name="customerPhone" type="text" />
+										<input name="phone" onChange={handleChange} onBlur={handleBlur} value={values.phone}/>
+										<div className="errors">
+											{touched.phone && errors.phone}
+										</div>
 									</div>
-									<div>
+									<div className="field">
 										<label>Your Address</label>
-										<textarea name="customerAddress" rows={3} />
+										<textarea name="address" rows={3} onChange={handleChange} onBlur={handleBlur} value={values.address}/>
+										<div className="errors">
+											{touched.address && errors.address}
+										</div>
 									</div>
-									<div>
+									<div className="field">
 										<label>If you want to leave a comment for us, enter it below</label>
-										<textarea name="customerComment" rows={3} />
+										<textarea name="comment" rows={3} onChange={handleChange} onBlur={handleBlur} value={values.comment}/>
+										<div className="errors">
+											{touched.comment && errors.comment}
+										</div>
 									</div>
 									<div className="completeOrderButtonContainer">
-										<button className="completeOrderButton">Complete order</button>
+										<button className="blueButton" type="submit" disabled={this.props.isSubmitting}>Complete order {this.props.isSubmitting && (<div className="spinner"></div>)}</button>
 									</div>
 								</form>
 							)}
@@ -74,8 +93,12 @@ class Cart extends React.Component {
 
 function mapStateToProps (state) {
 	return {
-		products: state.products
+		isSubmitting: state.checkout.isSubmitting
 	}
 }
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = {
+	checkout: customerActions.checkout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)

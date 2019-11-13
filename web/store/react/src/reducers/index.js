@@ -25,6 +25,20 @@ export default (state = initialState, action) => {
 				...state,
 				cart: action.cart
 			};
+		case types.CHECKOUT_START:
+			return {
+				...state,
+				checkout: {
+					isSubmitting: true
+				}
+			};
+		case types.CHECKOUT_END:
+			return {
+				...state,
+				checkout: {
+					isSubmitting: false
+				}
+			};
 		default:
 			return state;
 	}

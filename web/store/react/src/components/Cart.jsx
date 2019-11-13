@@ -6,9 +6,27 @@ import CartForm from "./CartForm";
 
 class Cart extends React.Component {
 
+	state = {
+		checkout: false
+	};
+
 	constructor(props) {
 		super(props);
 	}
+
+	handleCheckout = () => {
+		this.setState({
+			...this.state,
+			checkout: true
+		});
+	};
+
+	handleCancel = () => {
+		this.setState({
+			...this.state,
+			checkout: false
+		});
+	};
 
 	render() {
 		return (
@@ -16,10 +34,18 @@ class Cart extends React.Component {
 				<img className="emptyCartImg" src="/static/img/shopping-cart.svg" />
 				<div className="cartTitle">Your shopping cart</div>
 				<div className="cartContainer">
-					<CartTable />
-					<Link to="/"><button className="checkoutButton">Checkout</button></Link>
+					<CartTable disableDelete={this.state.checkout}/>
+					{
+						!this.state.checkout &&
+						(
+							<button className="blueButton checkoutButton" onClick={this.handleCheckout}>Checkout</button>
+						)
+					}
 				</div>
-				<CartForm/>
+				{
+					this.state.checkout &&
+					(<CartForm onCancel={this.handleCancel}/>)
+				}
 			</React.Fragment>
 		);
 	}
