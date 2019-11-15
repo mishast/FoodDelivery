@@ -87,7 +87,7 @@ const updateCartItem = (productId, qty) => {
 	};
 };
 
-const checkout = (checkoutInfo) => {
+const checkout = checkoutInfo => {
 	return async (dispatch, getState) => {
 		const { customer } = getState();
 
@@ -106,11 +106,9 @@ const checkout = (checkoutInfo) => {
 		if (checkoutResponse.status === 200) {
 			dispatch(checkoutEnd());
 		} else {
-			console.log(
-				`checkout error. Status = ${checkoutResponse.status}`
-			);
+			console.log(`checkout error. Status = ${checkoutResponse.status}`);
 		}
-	}
+	};
 };
 
 export default {

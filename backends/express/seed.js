@@ -43,7 +43,8 @@ mongo.connect(async db => {
 		},
 		{
 			title: 'Vegan Baguette & Wrap Platter',
-			description: 'Why not try our new Vegan Baguette and Wrap platter - it has such amazing fillings that you won\'t regret it.',
+			description:
+				"Why not try our new Vegan Baguette and Wrap platter - it has such amazing fillings that you won't regret it.",
 			image: {
 				id: '6951ab9a-f0f0-11e9-81b4-2a2ae2dbcce4',
 				filename: 'veganSandwitchPlatter_Hero.jpg'
@@ -52,7 +53,8 @@ mongo.connect(async db => {
 		},
 		{
 			title: 'Beef hamburger',
-			description: 'A delicious hamburger with two steaks of 100% beef with onions, two slices of pickled cucumbers, a slice of cheese, and a special sauce.',
+			description:
+				'A delicious hamburger with two steaks of 100% beef with onions, two slices of pickled cucumbers, a slice of cheese, and a special sauce.',
 			image: {
 				id: '3c64aeed-dc9e-4665-b975-88edd2bf66e3',
 				filename: 'beef_hamburger.jpg'
@@ -79,7 +81,8 @@ mongo.connect(async db => {
 		},
 		{
 			title: 'Caesar salad',
-			description: 'A mixture of Romano and iceberg lettuce, cherry tomatoes, chicken breast fillet, croutons, cheese, Caesar sauce.',
+			description:
+				'A mixture of Romano and iceberg lettuce, cherry tomatoes, chicken breast fillet, croutons, cheese, Caesar sauce.',
 			image: {
 				id: '743ae3ee-f18d-11e9-81b4-2a2ae2dbcce4',
 				filename: 'caesar_salad.jpg'
@@ -115,13 +118,14 @@ mongo.connect(async db => {
 		},
 		{
 			title: 'Champignon cream soup',
-			description: 'Chicken stock, champignons, onions, garlic, sunflower oil, butter, cognac, cheese, salt, pepper.',
+			description:
+				'Chicken stock, champignons, onions, garlic, sunflower oil, butter, cognac, cheese, salt, pepper.',
 			image: {
 				id: '864322f0-f18c-11e9-81b4-2a2ae2dbcce4',
 				filename: 'champ_soup.jpg'
 			},
 			price: '5'
-		},
+		}
 	]);
 
 	await db.collection('users').insertMany([

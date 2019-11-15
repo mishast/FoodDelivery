@@ -1,8 +1,8 @@
 import uuidv4 from 'uuid/v4';
-import config from "../../../../config";
+import jwt from 'jsonwebtoken';
+import config from '../../../../config';
 import checkAdminAuth from '../../../../utils/checkAdminAuth';
-import jwt from "jsonwebtoken";
-import errorHandler from "../../../../utils/errorHandler";
+import errorHandler from '../../../../utils/errorHandler';
 
 function login(req, res) {
 	const authData = req.body;
@@ -77,12 +77,9 @@ function deleteProduct(req, res, next) {}
 
 function getProduct(req, res, next) {}
 
-const addProductImage = async (req, res, next) => {
-};
+const addProductImage = async (req, res, next) => {};
 
-const deleteProductImage = (req, res, next) => {
-
-};
+const deleteProductImage = (req, res, next) => {};
 
 export default {
 	login,

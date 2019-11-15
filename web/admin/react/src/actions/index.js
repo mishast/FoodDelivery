@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import agent from '../agent'
+import agent from '../agent';
 export const closeDrawer = () => ({ type: types.CLOSE_DRAWER });
 
 export const toggleDrawer = () => ({ type: types.TOGGLE_DRAWER });
@@ -26,4 +26,3 @@ export const getProducts = () => {
 		}
 	};
 };
-

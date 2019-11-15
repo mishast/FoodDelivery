@@ -73,7 +73,7 @@ class Cart extends React.Component {
 										</div>
 									</div>
 									<div className="field">
-										<label>If you want to leave a comment for us, enter it below</label>
+										<label>If you want to leave a comment for us, you can leave them in the box below</label>
 										<textarea name="comment" rows={3} onChange={handleChange} onBlur={handleBlur} value={values.comment}/>
 										<div className="errors">
 											{touched.comment && errors.comment}

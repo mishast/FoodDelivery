@@ -21,19 +21,18 @@ const login = async (username, password) => {
 		});
 
 		if (response.data) {
-			let data = response.data;
+			const { data } = response;
 
 			if (data.result === 'success') {
 				setToken(data.token);
 			}
 
 			return data;
-		} else {
-			return {
-				result: 'connection_error',
-				errorText: 'Request error'
-			};
 		}
+		return {
+			result: 'connection_error',
+			errorText: 'Request error'
+		};
 	} catch (e) {
 		return {
 			result: 'connection_error',
@@ -46,7 +45,7 @@ const getProducts = async () => {
 	try {
 		const response = await axios.get(getApiUrl('/products'), {
 			headers: {
-				Authorization: "Bearer " + token
+				Authorization: `Bearer ${token}`
 			}
 		});
 
@@ -55,7 +54,6 @@ const getProducts = async () => {
 		}
 
 		return response.data;
-
 	} catch (e) {
 		return null;
 	}
