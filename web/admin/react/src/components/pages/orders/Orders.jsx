@@ -1,62 +1,50 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
-import OrdersBase from './OrdersBase';
+import {getOrders} from "../../../actions";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 class Orders extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			orders: []
+			loading: true
 		};
 	}
 
 	componentDidMount() {
-		let orders = [
-			{
-				"key": "1111",
-				"Product": "Tomato soup",
-				"Client": "Andrew Pevkin",
-				"Phone": "+12322323",
-				"OrderState": this.props.orderState,
-				"Address": "New york"
-			},
-			{
-				"key": "2222",
-				"Product": "Pizza",
-				"Client": "Andrew Pevkin",
-				"Phone": "+12322323",
-				"OrderState": this.props.orderState,
-				"Address": "New york"
-			}
-		];
+		this.props.getOrders(this.props.orderStatus);
+	}
 
-		this.setState({
-			orders: orders
-		});
+	componentDidUpdate(prevProps, prevState) {
+		if (this.props.orderStatus !== prevProps.orderStatus) {
+			this.props.getOrders(this.props.orderStatus);
+		}
 	}
 
 	render() {
+		console.log('Render list orders!');
+		console.log('Order status = ' + this.props.orderStatus);
+		console.log(this.props.orders);
+
 		let columns = [
 			{
-				title: "KEY",
-				dataIndex: "key"
-			},
-			{
-				title: "Product",
-				dataIndex: "Product"
-			},
-			{
-				title: "Client",
-				dataIndex: "Client"
+				title: "Name",
+				dataIndex: "orderInfo.name"
 			},
 			{
 				title: "Phone",
-				dataIndex: "Phone"
+				dataIndex: "orderInfo.phone"
+			},
+			{
+				title: "Address",
+				dataIndex: "orderInfo.address"
 			},
 			{
 				title: "Action",
 				render: (text, record) => (
 					<div>
+						<Link to={`/admin/orders/view/${record._id}`}><Button>View</Button></Link>&nbsp;&nbsp;
 						<Button>Verify</Button>&nbsp;&nbsp;
 						<Button>Decline</Button>
 					</div>
@@ -66,14 +54,26 @@ class Orders extends Component {
 
 		return (
 				<React.Fragment>
-					<Table
-						pagination={false}
-						columns={columns}
-						dataSource={this.state.orders}
-					/>
+					{this.props.orders &&	(
+						<Table
+							pagination={false}
+							columns={columns}
+							dataSource={this.props.orders}
+						/>
+					)}
 				</React.Fragment>
 		);
 	}
 }
 
-export default Orders;
+const mapDispatchToProps = {
+	getOrders,
+};
+
+function mapStateToProps(state) {
+	return {
+		orders: state.orders,
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);

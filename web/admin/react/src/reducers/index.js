@@ -5,7 +5,8 @@ const initialState = {
 	isMobile: false,
 	authorized: true,
 	token: null,
-	products: null
+	products: null,
+	orders: null
 };
 
 export default (state = initialState, action) => {
@@ -49,6 +50,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				products: action.products
+			};
+
+		case types.RECEIVE_ORDERS:
+			return {
+				...state,
+				orders: action.orders
 			};
 
 		default:

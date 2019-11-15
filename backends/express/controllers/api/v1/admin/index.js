@@ -35,11 +35,24 @@ const getOrders = [
 	checkAdminAuth,
 	async (req, res) => {
 		try {
+			console.log('req.query');
+			console.log(JSON.stringify(req.query));
+
 			const { db } = req.app;
+			const { status } = req.query;
+
+			let queryFilter = {};
+
+			if (status) {
+				queryFilter = { status };
+			}
+
+			console.log('queryFilter:');
+			console.log(JSON.stringify(queryFilter));
 
 			const products = await db
 				.collection('orders')
-				.find({})
+				.find(queryFilter)
 				.toArray();
 
 			res.status(200).json(products);

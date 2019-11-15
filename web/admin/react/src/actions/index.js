@@ -26,3 +26,21 @@ export const getProducts = () => {
 		}
 	};
 };
+
+const receiveOrders = orders => ({
+	type: types.RECEIVE_ORDERS,
+	orders
+});
+
+export const getOrders = status => {
+	return async dispatch => {
+		console.log('get orders');
+		const orders = await agent.getOrders(status);
+		console.log('orders:');
+		console.log(orders);
+
+		if (orders) {
+			dispatch(receiveOrders(orders));
+		}
+	};
+};

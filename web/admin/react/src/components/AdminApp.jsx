@@ -6,6 +6,7 @@ import MobileDetector from "./helpers/MobileDetector";
 import {BrowserRouter} from "react-router-dom";
 import { Route, Switch } from "react-router";
 import { Redirect } from "react-router-dom";
+import Order from './pages/order/Order';
 import Orders from './pages/orders/Orders';
 import NewProduct from './pages/products/NewProduct';
 import ListProducts from './pages/products/ListProducts';
@@ -25,13 +26,14 @@ class AdminApp extends Component {
 							<div className="content">
 								<Switch>
 									<Route path="/admin/account" component={Account} />
-									<Route path="/admin/orders/new" render={() => (<Orders orderState="new" />)} />
-									<Route path="/admin/orders/verified" render={() => (<Orders orderState="verified" />)} />
-									<Route path="/admin/orders/inwork" render={() => (<Orders orderState="in_work" />)} />
-									<Route path="/admin/orders/ready" render={() => (<Orders orderState="ready_for_delivery" />)} />
-									<Route path="/admin/orders/onDelivery" render={() => (<Orders orderState="on_delivery" />)} />
-									<Route path="/admin/orders/completed" render={() => (<Orders orderState="completed" />)} />
-									<Route path="/admin/orders/canceled" render={() => (<Orders orderState="canceled" />)} />
+									<Route path="/admin/orders/new" render={() => (<Orders orderStatus="new" />)} />
+									<Route path="/admin/orders/verified" render={() => (<Orders orderStatus="verified" />)} />
+									<Route path="/admin/orders/inwork" render={() => (<Orders orderStatus="in_work" />)} />
+									<Route path="/admin/orders/ready" render={() => (<Orders orderStatus="ready_for_delivery" />)} />
+									<Route path="/admin/orders/onDelivery" render={() => (<Orders orderStatus="on_delivery" />)} />
+									<Route path="/admin/orders/completed" render={() => (<Orders orderStatus="completed" />)} />
+									<Route path="/admin/orders/canceled" render={() => (<Orders orderStatus="canceled" />)} />
+									<Route path="/admin/orders/view/:id" render={(props) => (<Order orderId={props.match.params} />)} />
 									<Route path="/admin/products/new" component={NewProduct} />
 									<Route path="/admin/products/list" component={ListProducts} />
 									<Route path="/admin" exact>
