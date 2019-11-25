@@ -1,14 +1,20 @@
 # FoodDelivery
+<p>
+  <img src="https://img.shields.io/badge/React-16.10.+-lightblue.svg">
+  <img src="https://img.shields.io/badge/Redux-4.0.+-purple.svg">
+  <img src="https://img.shields.io/badge/Nodejs-10.16.+-green.svg">
+  <img src="https://img.shields.io/badge/Express-4.17.+-black.svg">
+</p>
 FoodDelivery is open source ecommerce application for food delivering.
 Application consists of following parts:
 1. Store front - React based SPA with server side rendering
-2. Dashboard - React
+2. Backoffice - React
 3. API Backend - Node.js, Express, MongoDb
 
 ## Live demo
 
 * To view storefront, [click here](https://shop.food-delivery.mishast.com)
-* To view dashboard, [click here](https://admin.food-delivery.mishast.com)
+* To view Backoffice, [click here](https://admin.food-delivery.mishast.com)
 
 ## Features
 
@@ -79,13 +85,13 @@ yarn install
 ```
 yarn run start
 ```
-### Start dashboard
+### Start Backoffice
 * Go to 'web/admin/react'
 * Install dependencies
 ```
 yarn install
 ```
-* Start dashboard
+* Start Backoffice
 ```
 yarn run start
 ```
