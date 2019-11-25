@@ -8,8 +8,8 @@ Application consists of following parts:
 ## Features
 
 Storefront:
-1. Server side rendering
-2. Responsitive design
+1. Server-side rendering
+2. Responsive design
 3. Add to cart
 4. Delete from cart
 5. Checkout
@@ -18,27 +18,32 @@ Storefront:
 Dashboard:
 
 1. Login
-2. Responsitive design
-3. Orders list
-4. Change order status (**WIP**)
-5. Products list
-6. Add / edit product (**WIP**)
+2. Responsive design
+3. Orders lists based on status
+4. Change order status (**Work in progress**)
+5. View order (**Work in progress**)
+6. Products list
+7. View product (**Work in progress**)
+6. Add / edit product (**Work in progress**)
 
-## Technologies
+## Demo
 
-1. React
-2. Redux
-3. Redux-Thunk
-2. Node.js
-3. Formidable
-4. Jsonwebtoken
-5. Ant.Design
-6. Formik
-7. Yup
-8. Axios
-3. Server side rendering
-4. React Router v4
-3. Express
+* To view storefront, [click here](https://shop.food-delivery.mishast.com)
+* To view dashboard, [click here](https://admin.food-delivery.mishast.com)
+
+## Dependencies
+
+1. [React](https://reactjs.org/docs/getting-started.html) - ui
+2. [Redux](https://redux.js.org/api/api-reference) - state managment
+3. [Redux-thunk](https://github.com/reduxjs/redux-thunk) - side effects
+4. [Formidable](https://github.com/node-formidable/node-formidable) - file uploads
+5. [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - implementation of json web tokens
+6. [Ant.Design](https://github.com/ant-design/ant-design) - react ui library
+7. [Formik](https://github.com/jaredpalmer/formik) - forms for react
+8. [Yup](https://github.com/jquense/yup) - form validation
+9. [Axios](https://github.com/axios/axios) - http client
+10. [React Router v4](https://reacttraining.com/react-router/web/guides/quick-start) - router
+11. [Express](https://expressjs.com/) - web framework
 
 ## Setup
 ### Install and run MongoDB
