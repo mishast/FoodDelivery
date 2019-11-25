@@ -5,6 +5,11 @@ Application consists of following parts:
 2. Dashboard - React
 3. API Backend - Node.js, Express, MongoDb
 
+## Live demo
+
+* To view storefront, [click here](https://shop.food-delivery.mishast.com)
+* To view dashboard, [click here](https://admin.food-delivery.mishast.com)
+
 ## Features
 
 Storefront:
@@ -26,11 +31,6 @@ Dashboard:
 7. View product (**Work in progress**)
 6. Add / edit product (**Work in progress**)
 
-## Demo
-
-* To view storefront, [click here](https://shop.food-delivery.mishast.com)
-* To view dashboard, [click here](https://admin.food-delivery.mishast.com)
-
 ## Dependencies
 
 1. [React](https://reactjs.org/docs/getting-started.html) - ui
@@ -46,38 +46,60 @@ Dashboard:
 11. [Express](https://expressjs.com/) - web framework
 
 ## Setup
-### Install and run MongoDB
-### Start backend
-#### Go to backends/express
-#### Install dependencies
+### Prerequisites
+* Install Node.js >= 10
+* Install MongoDB
+### Seed database
+* Go to 'backends/express'
+* Install 'dependencies'
 ```
 yarn install
 ```
-### Seed the database
+* Seed database
 ```
 yarn run seed
 ```
 ### Start backend
+* Go to 'backends/express'
+* Install dependencies
+```
+yarn install
+```
+* Start backend
 ```
 yarn run start
 ```
 ### Start storefront
-#### Go to web/store/react
-#### Install dependencies
+* Go to 'web/store/react'
+* Install dependencies
 ```
 yarn install
 ```
-### Start backend
+* Start storefront
 ```
 yarn run start
 ```
 ### Start dashboard
-#### Go to web/admin/react
-#### Install dependencies
+* Go to 'web/admin/react'
+* Install dependencies
 ```
 yarn install
 ```
-### Start backend
+* Start dashboard
 ```
 yarn run start
 ```
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2014-2019 Sahat Yalkabov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Coded with ❤️ by [MishaSt](https://mishast.com)
