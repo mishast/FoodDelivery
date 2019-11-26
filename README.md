@@ -81,6 +81,10 @@ yarn run start
 ```
 yarn install
 ```
+* Buld storefront
+```
+yarn run build:dev
+```
 * Start storefront
 ```
 yarn run start
