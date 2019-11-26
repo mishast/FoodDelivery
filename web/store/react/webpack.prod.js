@@ -55,7 +55,7 @@ const clientConfig = merge.smart(webpackCommon.clientConfig, {
 	}
 });
 
-const serverConfig = merge.smart(webpackCommon.clientConfig, {
+const serverConfig = merge.smart(webpackCommon.serverConfig, {
 	mode: 'production',
 	devtool: 'source-map',
 	module: {
