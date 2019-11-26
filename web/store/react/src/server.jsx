@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -20,8 +21,9 @@ if(process.env.NODE_ENV !== 'production'){
 	app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackClientConfig.output.publicPath }));
 	app.use(webpackHotMiddleware(compiler));
 	console.log('Start DEV server');
-}else{
-	app.use('/static', express.static(__dirname + '/../../dist/public'));
+} else {
+	console.log('Start Production server');
+	app.use('/static', express.static(path.resolve(__dirname, 'public')));
 }
 
 const renderPage = (html, initialState) => {
@@ -32,7 +34,7 @@ const renderPage = (html, initialState) => {
         <meta charset="utf-8">
         <title>Isomorphic Redux Example</title>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/app.css">
+        <link rel="stylesheet" type="text/css" href="/static/main.css">
       </head>
       <body>
         <div id="app">${html}</div>
