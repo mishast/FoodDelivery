@@ -13,7 +13,7 @@ Application consists of following parts:
 
 ## Live demo
 
-* To view storefront, [click here](https://shop.food-delivery.mishast.com)
+* To view storefront, [click here](https://store.food-delivery.mishast.com)
 * To view Backoffice, [click here](https://admin.food-delivery.mishast.com)
 
 ## Features
