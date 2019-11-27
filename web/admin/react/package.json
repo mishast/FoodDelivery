@@ -7,7 +7,7 @@
   "author": "Mikhail Strizhov",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config=webpack.prod.js",
+    "build": "webpack --mode=production --config=webpack.prod.js",
     "start": "webpack-dev-server --config=webpack.dev.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
