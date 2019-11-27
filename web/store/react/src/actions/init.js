@@ -39,7 +39,7 @@ const initApp = () => {
 			}
 		} else {
 			console.log('create new customer');
-			const customerResponse = await axios.get(
+			const customerResponse = await axios.post(
 				`${config.apiBaseUrl}api/v1/customer`
 			);
 			if (customerResponse.status === 200) {
