@@ -33,7 +33,47 @@ class CartTable extends React.Component {
 		);
 
 		console.log(cartTotal);
+		
+		return (
+			<React.Fragment>
+			{
+				this.props.cart.map((item) => {
+					let imageUrl = config.apiBaseUrl + 'files/' + item.image.id + '/' + item.image.filename;
 
+					let price = parseFloat(item.price);
+					let total = price * item.qty;
+
+					return (
+						<div className="cart-prod">
+							<div className="cart-prod-img-cont">
+								<img className="cart-prod-img" src={imageUrl} />
+							</div>
+							<div className="cart-prod-det">
+							<div className="cart-prod-head">{item.title}</div>
+							<p className="cart-prod-desc">{item.description}</p>
+							</div>
+							<div className="cart-prod-prc">${price}</div>
+							<div className="cart-prod-mul">x</div>
+							<div className="cart-prod-qty">
+								<input type="text" value={item.qty} />
+							</div>
+							<div className="cart-prod-removal">
+							<button className="remove-cart-prod" onClick={() => {
+								this.handleDelete(item.product_id)
+							}}>
+								Remove
+							</button>
+							</div>
+							<div className="cart-prod-prc-spacer" />
+							<div className="cart-prod-line-prc">${total}</div>
+						</div>
+					);
+				})
+			}
+			</React.Fragment>
+		);
+
+/*
 		return (
 			<table className="cartTable">
 				<thead>
@@ -96,7 +136,7 @@ class CartTable extends React.Component {
 					</td>
 				</tr>
 			</table>
-		);
+		);*/
 	}
 }
 

@@ -11,9 +11,11 @@ class Cart extends React.Component {
 	render() {
 		return (
 			<div className="emptyCartContainer">
-				<img className="emptyCartImg" src="/static/img/shopping-cart.svg" />
-				<div className="emptyCartText">YOUR CART IS EMPTY</div>
-				<Link to="/"><button className="blueButton">Back to catalog</button></Link>
+				<div className="emptyCart">
+					<img className="emptyCartImg" src="/static/img/shopping-cart.svg" />
+					<div className="emptyCartText">YOUR CART IS EMPTY</div>
+					<Link to="/"><button className="blueButton">Back to catalog</button></Link>
+				</div>
 			</div>
 		);
 	}
