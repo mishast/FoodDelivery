@@ -169,7 +169,8 @@ header {
     margin-top: 8px;
 	  margin-bottom: 20px;
     font-weight: 800;
-    font-size: 14px;
+	font-size: 14px;
+	cursor: pointer;
 }
 
 footer {
@@ -283,6 +284,7 @@ footer {
 	font-weight: 800;
 	font-size: 14px;
 	border: 0;
+	cursor: pointer;
 }
 
 .cartTable {
@@ -477,6 +479,13 @@ input:focus, textarea:focus {
 	flex-grow: 1;
   }
 
+  .cart-total {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	flex-grow: 1;
+	font-weight: 700;
+  }
+
   .cart-prod-head {
     font-weight: 700;
   }
@@ -512,6 +521,7 @@ input:focus, textarea:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 6rem;
   }
   
 	.remove-cart-prod {
@@ -558,7 +568,8 @@ input:focus, textarea:focus {
 	
 	.cart-prod-mul {
 	  display: flex;
-	  padding: 15px;
+	  padding-top: 15px;
+	  padding-bottom: 15px;
 	  align-items: center;
 	  align-content: center;
 	}

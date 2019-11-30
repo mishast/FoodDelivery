@@ -58,11 +58,16 @@ class CartTable extends React.Component {
 								<input type="text" value={item.qty} />
 							</div>
 							<div className="cart-prod-removal">
-							<button className="remove-cart-prod" onClick={() => {
-								this.handleDelete(item.product_id)
-							}}>
-								Remove
-							</button>
+							{
+									!this.props.disableDelete &&
+									(
+										<button className="remove-cart-prod" onClick={() => {
+											this.handleDelete(item.product_id)
+										}}>
+											Remove
+										</button>
+									)
+							}
 							</div>
 							<div className="cart-prod-prc-spacer" />
 							<div className="cart-prod-line-prc">${total}</div>
@@ -70,6 +75,11 @@ class CartTable extends React.Component {
 					);
 				})
 			}
+			<div className="cart-prod">
+				<div className="cart-total">TOTAL</div>
+				<div className="cart-prod-line-prc">${cartTotal.totalPrice}</div>
+			</div>
+
 			</React.Fragment>
 		);
 
