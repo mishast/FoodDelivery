@@ -199,3 +199,37 @@
 	padding-right: 2.5rem;
 	height: 2rem;
 }
+
+@media (max-width: 720px) {
+	.ant-table {
+		font-size: 0.8rem;
+	}
+
+	.ant-btn {
+		font-size: 0.8rem;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		height: 20px;
+	}
+
+	.content {
+		padding: 5px;
+	}
+
+	.contentWrapper {
+		padding-left: 2px;
+		padding-right: 2px;
+		padding-top: 50px;
+	}
+
+	.ant-table-tbody>tr>td, .ant-table-thead>tr>th {
+		padding: 4px;
+	}
+
+	.header {
+		height: 35px;
+		padding-left: 6px;
+	}
+}
