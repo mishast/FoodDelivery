@@ -59,6 +59,7 @@
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.3.2",
     "formik": "^2.0.3",
+    "history": "^4.10.1",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",

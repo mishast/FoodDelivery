@@ -4,18 +4,23 @@ import Header from "./Header";
 import Products from "./Products";
 import Footer from "./Footer";
 import CartPage from "./CartPage";
+import CartThankYou from "./CartThankYou";
+import ScrollToTop from "../helpers/ScrollToTop";
 
 class App extends Component {
 	render() {
 		return (
-			<div className="root">
-				<Header />
-					<Switch>
-						<Route path="/cart" component={CartPage} />
-						<Route path="/" component={Products} />
-					</Switch>
-				<Footer />
-			</div>
+			<ScrollToTop>
+				<div className="root">
+					<Header />
+						<Switch>
+							<Route path="/cart" component={CartPage} />
+							<Route path="/thankYou" component={CartThankYou} />
+							<Route path="/" component={Products} />
+						</Switch>
+					<Footer />
+				</div>
+			</ScrollToTop>
 		);
 	}
 }

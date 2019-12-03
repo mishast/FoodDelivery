@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 
-class Cart extends React.Component {
+class CartEmpty extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -21,10 +20,4 @@ class Cart extends React.Component {
 	}
 }
 
-function mapStateToProps (state) {
-	return {
-		products: state.products
-	}
-}
-
-export default connect(mapStateToProps)(Cart)
+export default CartEmpty;

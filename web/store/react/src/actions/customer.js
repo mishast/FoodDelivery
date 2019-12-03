@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from '../constants/actionTypes';
 import config from '../config';
+import history from '../helpers/history';
 
 const setCustomer = customer => ({
 	type: types.SET_CUSTOMER,
@@ -105,6 +106,7 @@ const checkout = checkoutInfo => {
 
 		if (checkoutResponse.status === 200) {
 			dispatch(checkoutEnd());
+			history.push('/thankYou');
 		} else {
 			console.log(`checkout error. Status = ${checkoutResponse.status}`);
 		}

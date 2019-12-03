@@ -37,7 +37,8 @@ export default (state = initialState, action) => {
 				...state,
 				checkout: {
 					isSubmitting: false
-				}
+				},
+				cart: []
 			};
 		default:
 			return state;

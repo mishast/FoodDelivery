@@ -33,7 +33,7 @@ class CartTable extends React.Component {
 		);
 
 		console.log(cartTotal);
-		
+
 		return (
 			<React.Fragment>
 			{
@@ -82,71 +82,6 @@ class CartTable extends React.Component {
 
 			</React.Fragment>
 		);
-
-/*
-		return (
-			<table className="cartTable">
-				<thead>
-				<tr>
-					<td className="cartHead">Product</td>
-					<td className="cartHead">Price</td>
-					<td className="cartHead">Quantity</td>
-					<td className="cartHead">Total</td>
-					<td className="cartHead" style={{width: '100px'}}>
-					{
-						!this.props.disableDelete &&
-						('Remove')
-					}
-					</td>
-				</tr>
-				</thead>
-				{
-					this.props.cart.map((item) => {
-						let imageUrl = config.apiBaseUrl + 'files/' + item.image.id + '/' + item.image.filename;
-
-						let price = parseFloat(item.price);
-						let total = price * item.qty;
-
-						return (
-							<tr>
-								<td>
-									<div className="cartProduct">
-										<img className="cartProductImg"
-												 src={imageUrl}/>
-										<div className="cartProductName">{item.title}</div>
-									</div>
-								</td>
-								<td className="cartPrice"><strong>${item.price}</strong></td>
-								<td><strong>{item.qty}</strong></td>
-								<td className="cartPrice"><strong>${total}</strong></td>
-								<td>
-								{
-									!this.props.disableDelete &&
-									(
-
-												<i className="fa fa-trash" aria-hidden="true" onClick={() => {
-													this.handleDelete(item.product_id)
-												}} />
-									)
-								}
-								</td>
-							</tr>
-						);
-					})
-				}
-				<tr>
-					<td>
-						<strong>TOTAL</strong>
-					</td>
-					<td className="cartPrice">
-					</td>
-					<td><strong>{cartTotal.totalQty}</strong></td>
-					<td className="cartPrice"><strong>${cartTotal.totalPrice}</strong></td>
-					<td>
-					</td>
-				</tr>
-			</table>
-		);*/
 	}
 }
 
