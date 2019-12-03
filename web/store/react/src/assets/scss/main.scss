@@ -101,7 +101,7 @@ header {
 		background: #fff;
 		box-shadow: 0 0 5px 1px rgb(222, 225, 225);
 		width: 330px;
-		height: 450px;
+		height: 488px;
 		display: flex;
 		margin: 10px;
 		position: relative;
@@ -120,7 +120,7 @@ header {
     position: absolute;
     bottom: 0;
     width: calc(100% - 32px);
-    height: 170px;
+    height: 218px;
     padding: 0 16px 10px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -457,7 +457,7 @@ input:focus, textarea:focus {
 	margin-bottom: 20px;
 	align-items: stretch;
   }
-  
+
   .cart-prod-img-cont {
 	flex-shrink: 0;
     width: 100px;
@@ -467,13 +467,13 @@ input:focus, textarea:focus {
 	justify-content: center;
 	border: 1px solid #eee;
   }
-  
+
   .cart-prod-img {
 	width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  
+
   .cart-prod-det {
 	padding-left: 20px;
 	flex-grow: 1;
@@ -489,11 +489,11 @@ input:focus, textarea:focus {
   .cart-prod-head {
     font-weight: 700;
   }
-  
+
   .cart-prod-mul {
 	display: none;
   }
-  
+
   .cart-prod-prc {
 	padding: 15px;
 	display: flex;
@@ -503,19 +503,19 @@ input:focus, textarea:focus {
 	width: 4rem;
     flex-shrink: 0;
   }
-  
+
   .cart-prod-qty {
 	padding: 15px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
   }
-  
+
   .cart-prod-qty input {
 	width: 40px;
     height: 1.5rem;
   }
-  
+
   .cart-prod-removal {
 	padding: 15px;
 	display: flex;
@@ -523,7 +523,7 @@ input:focus, textarea:focus {
 	justify-content: center;
 	width: 6rem;
   }
-  
+
 	.remove-cart-prod {
 	  border: 0;
 	  padding: 4px 8px;
@@ -532,11 +532,11 @@ input:focus, textarea:focus {
 	  font-size: 12px;
 	  border-radius: 3px;
 	}
-	
+
 	.remove-cart-prod:hover {
 	  background-color: #a44;
 	}
-  
+
   .cart-prod-line-prc {
 	padding: 15px;
 	width: 4rem;
@@ -546,7 +546,7 @@ input:focus, textarea:focus {
 	font-weight: 800;
 	flex-shrink: 0;
   }
-  
+
   @media (max-width:1000px) {
 	.cart-prod {
 	  flex-wrap: wrap;
@@ -556,16 +556,16 @@ input:focus, textarea:focus {
 		width: 15vw;
 		height: 15vw;
 	}
-	
+
 	.cart-prod-det {
 	  padding-left: 10px;
 	  width: calc(100% - 15vw - 2px);
 	}
-	
+
 	.cart-prod-prc {
 	  padding-left: 0;
 	}
-	
+
 	.cart-prod-mul {
 	  display: flex;
 	  padding-top: 15px;
@@ -573,14 +573,14 @@ input:focus, textarea:focus {
 	  align-items: center;
 	  align-content: center;
 	}
-	
+
 	.cart-prod-qty {
 	}
-	
+
 	.cart-prod-prc-spacer {
 	  flex-grow: 1;
 	}
-	
+
 	.cart-prod-line-prc {
 	  margin-right: 0;
 	}
