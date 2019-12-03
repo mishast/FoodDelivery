@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import config from '../../../../config';
 import checkAdminAuth from '../../../../utils/checkAdminAuth';
 import errorHandler from '../../../../utils/errorHandler';
+import {ObjectID} from "mongodb";
 
 function login(req, res) {
 	const authData = req.body;
@@ -64,7 +65,35 @@ const getOrders = [
 
 function getOrder(req, res, next) {}
 
-function setOrderStatus(req, res, next) {}
+const setOrderStatus = [
+	checkAdminAuth,
+	async (req, res) => {
+		try {
+			const { db } = req.app;
+
+			const orderId = req.params.id;
+
+			const filter = {
+				_id: new ObjectID(orderId)
+			};
+
+			const newStatusRequest = req.body;
+			const newStatus = newStatusRequest.status;
+
+			await db
+				.collection('orders')
+				.updateOne(filter, { $set: { status: newStatus } });
+
+			let response = {
+				newStatus: newStatus
+			};
+
+			res.status(200).json(response);
+		} catch (err) {
+			errorHandler(err, req, res);
+		}
+	}
+];
 
 const getProducts = [
 	checkAdminAuth,

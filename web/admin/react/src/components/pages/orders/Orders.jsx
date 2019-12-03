@@ -1,8 +1,10 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
-import {getOrders} from "../../../actions";
+import {getOrders, setOrderStatus} from "../../../actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import * as ordersStatus from "../../../constants/ordersStatus";
+import {VERIFIED} from "../../../constants/ordersStatus";
 
 class Orders extends Component {
 	constructor(props) {
@@ -22,10 +24,42 @@ class Orders extends Component {
 		}
 	}
 
+	handleChangeStatus = (orderId, newStatus) => {
+		this.props.setOrderStatus(orderId, newStatus);
+	};
+
 	render() {
 		console.log('Render list orders!');
 		console.log('Order status = ' + this.props.orderStatus);
 		console.log(this.props.orders);
+
+		const availableButtons = {
+			[ordersStatus.NEW]:
+				[
+					{	title: 'Verify', newStatus: ordersStatus.VERIFIED },
+					{	title: 'Decline', newStatus: ordersStatus.CANCELED }
+				],
+			[ordersStatus.VERIFIED]:
+				[
+					{	title: 'In work', newStatus: ordersStatus.IN_WORK },
+					{	title: 'Cancel', newStatus: ordersStatus.CANCELED }
+				],
+			[ordersStatus.IN_WORK]:
+				[
+					{	title: 'Ready', newStatus: ordersStatus.READY_FOR_DELIVERY },
+					{	title: 'Cancel', newStatus: ordersStatus.CANCELED }
+				],
+			[ordersStatus.READY_FOR_DELIVERY]:
+				[
+					{	title: 'To delivery', newStatus: ordersStatus.ON_DELIVERY },
+					{	title: 'Cancel', newStatus: ordersStatus.CANCELED }
+				],
+			[ordersStatus.ON_DELIVERY]:
+				[
+					{	title: 'Completed', newStatus: ordersStatus.COMPLETED },
+					{	title: 'Cancel', newStatus: ordersStatus.CANCELED }
+				],
+		};
 
 		let columns = [
 			{
@@ -45,12 +79,23 @@ class Orders extends Component {
 				render: (text, record) => (
 					<div>
 						<Link to={`/admin/orders/view/${record._id}`}><Button>View</Button></Link>&nbsp;&nbsp;
-						<Button>Verify</Button>&nbsp;&nbsp;
-						<Button>Decline</Button>
+						{availableButtons[this.props.orderStatus] && availableButtons[this.props.orderStatus].map(
+							(button) => (
+								<React.Fragment>
+									<Button onClick={() => this.handleChangeStatus(record._id, button.newStatus)}>{button.title}</Button>&nbsp;&nbsp;
+								</React.Fragment>
+							)
+
+						)}
 					</div>
 				)
 			}
 		];
+
+		/*
+						<Button onClick={() => this.handleChangeStatus(record._id, ordersStatus.VERIFIED)}>Verify</Button>&nbsp;&nbsp;
+						<Button onClick={() => this.handleChangeStatus(record._id, ordersStatus.CANCELED)}>Decline</Button>
+		* */
 
 		return (
 				<React.Fragment>
@@ -68,6 +113,7 @@ class Orders extends Component {
 
 const mapDispatchToProps = {
 	getOrders,
+	setOrderStatus
 };
 
 function mapStateToProps(state) {

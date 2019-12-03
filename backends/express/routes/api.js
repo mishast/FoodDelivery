@@ -12,7 +12,7 @@ function configureApiRoutes(router) {
 	router.post('/api/v1/admin/login', adminApi.login);
 	router.get('/api/v1/admin/orders', adminApi.getOrders);
 	router.get('/api/v1/admin/orders/:id', adminApi.getOrder);
-	router.put('/api/v1/admin/orders/:id/status', adminApi.setOrderStatus);
+	router.post('/api/v1/admin/orders/:id/status', adminApi.setOrderStatus);
 	router.get('/api/v1/admin/products', adminApi.getProducts);
 	router.post('/api/v1/admin/products/:id', adminApi.createOrUpdateProduct);
 	router.delete('/api/v1/admin/products/:id', adminApi.deleteProduct);

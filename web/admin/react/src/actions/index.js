@@ -27,8 +27,9 @@ export const getProducts = () => {
 	};
 };
 
-const receiveOrders = orders => ({
+const receiveOrders = (status, orders) => ({
 	type: types.RECEIVE_ORDERS,
+	status,
 	orders
 });
 
@@ -40,7 +41,20 @@ export const getOrders = status => {
 		console.log(orders);
 
 		if (orders) {
-			dispatch(receiveOrders(orders));
+			dispatch(receiveOrders(status, orders));
 		}
 	};
+};
+
+export const setOrderStatus = (orderId, newStatus) => {
+	return async (dispatch, getState) => {
+
+		await agent.setOrderStatus(orderId, newStatus);
+
+		const state = getState();
+
+		const currentStatus = state.ordersStatus;
+
+		dispatch(getOrders(currentStatus));
+	}
 };
