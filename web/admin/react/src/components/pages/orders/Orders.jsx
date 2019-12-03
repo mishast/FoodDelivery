@@ -4,7 +4,6 @@ import {getOrders, setOrderStatus} from "../../../actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import * as ordersStatus from "../../../constants/ordersStatus";
-import {VERIFIED} from "../../../constants/ordersStatus";
 
 class Orders extends Component {
 	constructor(props) {
@@ -91,11 +90,6 @@ class Orders extends Component {
 				)
 			}
 		];
-
-		/*
-						<Button onClick={() => this.handleChangeStatus(record._id, ordersStatus.VERIFIED)}>Verify</Button>&nbsp;&nbsp;
-						<Button onClick={() => this.handleChangeStatus(record._id, ordersStatus.CANCELED)}>Decline</Button>
-		* */
 
 		return (
 				<React.Fragment>

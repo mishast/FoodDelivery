@@ -48,7 +48,6 @@ export const getOrders = status => {
 
 export const setOrderStatus = (orderId, newStatus) => {
 	return async (dispatch, getState) => {
-
 		await agent.setOrderStatus(orderId, newStatus);
 
 		const state = getState();
@@ -56,5 +55,5 @@ export const setOrderStatus = (orderId, newStatus) => {
 		const currentStatus = state.ordersStatus;
 
 		dispatch(getOrders(currentStatus));
-	}
+	};
 };

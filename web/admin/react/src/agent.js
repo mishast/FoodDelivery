@@ -79,15 +79,17 @@ const getOrders = async status => {
 
 const setOrderStatus = async (orderId, status) => {
 	try {
-		const response = await axios.post(getApiUrl(`/orders/${orderId}/status`),
+		const response = await axios.post(
+			getApiUrl(`/orders/${orderId}/status`),
 			{
-				status: status
+				status
 			},
 			{
-			headers: {
-				Authorization: `Bearer ${token}`
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
 			}
-		});
+		);
 
 		if (response.status !== 200) {
 			return null;
