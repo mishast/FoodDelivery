@@ -7,7 +7,8 @@ const initialState = {
 	token: null,
 	products: null,
 	ordersStatus: null,
-	orders: null
+	orders: null,
+	order: null
 };
 
 export default (state = initialState, action) => {
@@ -53,11 +54,17 @@ export default (state = initialState, action) => {
 				products: action.products
 			};
 
-		case types.RECEIVE_ORDERS:
+		case types.RECEIVE_ORDERS_LIST:
 			return {
 				...state,
 				ordersStatus: action.status,
 				orders: action.orders
+			};
+
+		case types.RECEIVE_ORDER:
+			return {
+				...state,
+				order: action.order
 			};
 
 		default:

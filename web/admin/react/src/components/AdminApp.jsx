@@ -33,7 +33,7 @@ class AdminApp extends Component {
 									<Route path="/admin/orders/onDelivery" render={() => (<Orders orderStatus="on_delivery" />)} />
 									<Route path="/admin/orders/completed" render={() => (<Orders orderStatus="completed" />)} />
 									<Route path="/admin/orders/canceled" render={() => (<Orders orderStatus="canceled" />)} />
-									<Route path="/admin/orders/view/:id" render={(props) => (<Order orderId={props.match.params} />)} />
+									<Route path="/admin/orders/view/:id" render={(props) => (<Order orderId={props.match.params.id} />)} />
 									<Route path="/admin/products/new" component={NewProduct} />
 									<Route path="/admin/products/list" component={ListProducts} />
 									<Route path="/admin" exact>

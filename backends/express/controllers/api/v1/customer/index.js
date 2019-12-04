@@ -168,9 +168,7 @@ const checkoutCart = [
 				orderInfo
 			});
 
-			await db
-				.collection('carts')
-				.updateOne(filter, { $set: { items: [] } });
+			await db.collection('carts').updateOne(filter, { $set: { items: [] } });
 
 			const response = {
 				orderId: insertedOrder.insertedId

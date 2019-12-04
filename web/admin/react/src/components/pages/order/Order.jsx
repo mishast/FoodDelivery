@@ -1,6 +1,6 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
-import {getOrders} from "../../../actions";
+import {getOrder} from "../../../actions";
 import {connect} from "react-redux";
 
 class Orders extends Component {
@@ -9,27 +9,38 @@ class Orders extends Component {
 	}
 
 	componentDidMount() {
-	}
-
-	componentDidUpdate(prevProps, prevState) {
+		this.props.getOrder(this.props.orderId);
 	}
 
 	render() {
+		console.log(this.props.orderId);
+		if (this.props.order) {
+			console.log(this.props.order.items);
+		}
+
 		return (
 			<React.Fragment>
-				ORDER
+				ORDER {this.props.orderId}
+				{this.props.order &&
+					<React.Fragment>
+						name {this.props.order.orderInfo.name}<br/>
+						phone {this.props.order.orderInfo.phone}<br/>
+						address {this.props.order.orderInfo.address}<br/>
+						comment {this.props.order.orderInfo.comment}<br/>
+					</React.Fragment>
+				}
 			</React.Fragment>
 		);
 	}
 }
 
 const mapDispatchToProps = {
-	getOrders,
+	getOrder,
 };
 
 function mapStateToProps(state) {
 	return {
-		orders: state.orders,
+		order: state.order,
 	};
 }
 

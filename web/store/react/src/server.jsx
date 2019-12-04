@@ -33,7 +33,7 @@ const renderPage = (html, initialState) => {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Isomorphic Redux Example</title>
+        <title>FoodDelivery - delicious food within minutes</title>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/static/main.css">
       </head>

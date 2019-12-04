@@ -1,9 +1,9 @@
 import uuidv4 from 'uuid/v4';
 import jwt from 'jsonwebtoken';
+import { ObjectID } from 'mongodb';
 import config from '../../../../config';
 import checkAdminAuth from '../../../../utils/checkAdminAuth';
 import errorHandler from '../../../../utils/errorHandler';
-import {ObjectID} from "mongodb";
 
 function login(req, res) {
 	const authData = req.body;
@@ -63,7 +63,26 @@ const getOrders = [
 	}
 ];
 
-function getOrder(req, res, next) {}
+const getOrder = [
+	checkAdminAuth,
+	async (req, res) => {
+		try {
+			const { db } = req.app;
+
+			const orderId = req.params.id;
+
+			const filter = {
+				_id: new ObjectID(orderId)
+			};
+
+			const order = await db.collection('orders').findOne(filter);
+
+			res.status(200).json(order);
+		} catch (err) {
+			errorHandler(err, req, res);
+		}
+	}
+];
 
 const setOrderStatus = [
 	checkAdminAuth,
@@ -80,12 +99,10 @@ const setOrderStatus = [
 			const newStatusRequest = req.body;
 			const newStatus = newStatusRequest.status;
 
-			await db
-				.collection('orders')
-				.updateOne(filter, { $set: { status: newStatus } });
+			await db.collection('orders').updateOne(filter, { $set: { status: newStatus } });
 
-			let response = {
-				newStatus: newStatus
+			const response = {
+				newStatus
 			};
 
 			res.status(200).json(response);

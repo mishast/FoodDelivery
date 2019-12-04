@@ -27,21 +27,39 @@ export const getProducts = () => {
 	};
 };
 
-const receiveOrders = (status, orders) => ({
-	type: types.RECEIVE_ORDERS,
+const receiveOrdersList = (status, orders) => ({
+	type: types.RECEIVE_ORDERS_LIST,
 	status,
 	orders
 });
 
-export const getOrders = status => {
+const receiveOrder = order => ({
+	type: types.RECEIVE_ORDER,
+	order
+});
+
+export const getOrdersList = status => {
 	return async dispatch => {
 		console.log('get orders');
-		const orders = await agent.getOrders(status);
+		const orders = await agent.getOrdersList(status);
 		console.log('orders:');
 		console.log(orders);
 
 		if (orders) {
-			dispatch(receiveOrders(status, orders));
+			dispatch(receiveOrdersList(status, orders));
+		}
+	};
+};
+
+export const getOrder = orderId => {
+	return async dispatch => {
+		console.log('get order');
+		const order = await agent.getOrder(orderId);
+		console.log('order:');
+		console.log(order);
+
+		if (order) {
+			dispatch(receiveOrder(order));
 		}
 	};
 };
@@ -54,6 +72,6 @@ export const setOrderStatus = (orderId, newStatus) => {
 
 		const currentStatus = state.ordersStatus;
 
-		dispatch(getOrders(currentStatus));
+		dispatch(getOrdersList(currentStatus));
 	};
 };

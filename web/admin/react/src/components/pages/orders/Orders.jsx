@@ -1,6 +1,6 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
-import {getOrders, setOrderStatus} from "../../../actions";
+import {getOrdersList, setOrderStatus} from "../../../actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import * as ordersStatus from "../../../constants/ordersStatus";
@@ -14,12 +14,12 @@ class Orders extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getOrders(this.props.orderStatus);
+		this.props.getOrdersList(this.props.orderStatus);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props.orderStatus !== prevProps.orderStatus) {
-			this.props.getOrders(this.props.orderStatus);
+			this.props.getOrdersList(this.props.orderStatus);
 		}
 	}
 
@@ -106,7 +106,7 @@ class Orders extends Component {
 }
 
 const mapDispatchToProps = {
-	getOrders,
+	getOrdersList,
 	setOrderStatus
 };
 
