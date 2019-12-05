@@ -92,7 +92,7 @@ class Orders extends Component {
 		];
 
 		return (
-				<React.Fragment>
+			<div className="content">
 					{this.props.orders &&	(
 						<Table
 							pagination={false}
@@ -100,7 +100,7 @@ class Orders extends Component {
 							dataSource={this.props.orders}
 						/>
 					)}
-				</React.Fragment>
+			</div>
 		);
 	}
 }

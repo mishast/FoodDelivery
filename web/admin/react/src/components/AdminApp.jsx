@@ -23,7 +23,7 @@ class AdminApp extends Component {
 					<Header />
 					<Content>
 						<div className="contentWrapper">
-							<div className="content">
+
 								<Switch>
 									<Route path="/admin/account" component={Account} />
 									<Route path="/admin/orders/new" render={() => (<Orders orderStatus="new" />)} />
@@ -44,7 +44,6 @@ class AdminApp extends Component {
 									</Route>
 								</Switch>
 							</div>
-						</div>
 					</Content>
 				</Layout>
 			</Layout>
