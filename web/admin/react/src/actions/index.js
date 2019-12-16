@@ -13,16 +13,16 @@ export const login = token => ({ type: types.LOGIN, token });
 
 export const logout = () => ({ type: types.LOGOUT });
 
-const receiveProducts = products => ({
-	type: types.RECEIVE_PRODUCTS,
+const receiveProductsList = products => ({
+	type: types.RECEIVE_PRODUCTS_LIST,
 	products
 });
 
-export const getProducts = () => {
+export const getProductsList = () => {
 	return async dispatch => {
-		const products = await agent.getProducts();
+		const products = await agent.getProductsList();
 		if (products) {
-			dispatch(receiveProducts(products));
+			dispatch(receiveProductsList(products));
 		}
 	};
 };
@@ -36,6 +36,11 @@ const receiveOrdersList = (status, orders) => ({
 const receiveOrder = order => ({
 	type: types.RECEIVE_ORDER,
 	order
+});
+
+const receiveProduct = product => ({
+	type: types.RECEIVE_PRODUCT,
+	product
 });
 
 export const getOrdersList = status => {
@@ -60,6 +65,19 @@ export const getOrder = orderId => {
 
 		if (order) {
 			dispatch(receiveOrder(order));
+		}
+	};
+};
+
+export const getProduct = productId => {
+	return async dispatch => {
+		console.log('get product');
+		const product = await agent.getProduct(productId);
+		console.log('product:');
+		console.log(product);
+
+		if (product) {
+			dispatch(receiveProduct(product));
 		}
 	};
 };

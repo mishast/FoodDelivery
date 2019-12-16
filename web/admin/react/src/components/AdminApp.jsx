@@ -10,6 +10,7 @@ import Order from './pages/order/Order';
 import Orders from './pages/orders/Orders';
 import NewProduct from './pages/products/NewProduct';
 import ListProducts from './pages/products/ListProducts';
+import Product from './pages/products/Product';
 import Account from "./pages/account/Account";
 
 const { Content } = Layout;
@@ -36,6 +37,7 @@ class AdminApp extends Component {
 									<Route path="/admin/orders/view/:id" render={(props) => (<Order orderId={props.match.params.id} />)} />
 									<Route path="/admin/products/new" component={NewProduct} />
 									<Route path="/admin/products/list" component={ListProducts} />
+									<Route path="/admin/products/:id" render={(props) => (<Product productId={props.match.params.id} />)} />
 									<Route path="/admin" exact>
 										<Redirect to="/admin/orders/new" />
 									</Route>

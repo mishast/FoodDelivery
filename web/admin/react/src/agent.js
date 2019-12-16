@@ -41,9 +41,27 @@ const login = async (username, password) => {
 	}
 };
 
-const getProducts = async () => {
+const getProductsList = async () => {
 	try {
 		const response = await axios.get(getApiUrl('/products'), {
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		});
+
+		if (response.status !== 200) {
+			return null;
+		}
+
+		return response.data;
+	} catch (e) {
+		return null;
+	}
+};
+
+const getProduct = async productId => {
+	try {
+		const response = await axios.get(getApiUrl(`/products/${productId}`), {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
@@ -122,7 +140,8 @@ const setOrderStatus = async (orderId, status) => {
 export default {
 	setToken,
 	login,
-	getProducts,
+	getProductsList,
+	getProduct,
 	getOrdersList,
 	getOrder,
 	setOrderStatus

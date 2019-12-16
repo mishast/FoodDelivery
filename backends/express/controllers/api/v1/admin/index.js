@@ -130,11 +130,30 @@ const getProducts = [
 	}
 ];
 
+const getProduct = [
+	checkAdminAuth,
+	async (req, res) => {
+		try {
+			const { db } = req.app;
+
+			const orderId = req.params.id;
+
+			const filter = {
+				_id: new ObjectID(orderId)
+			};
+
+			const order = await db.collection('products').findOne(filter);
+
+			res.status(200).json(order);
+		} catch (err) {
+			errorHandler(err, req, res);
+		}
+	}
+];
+
 function createOrUpdateProduct(req, res, next) {}
 
 function deleteProduct(req, res, next) {}
-
-function getProduct(req, res, next) {}
 
 const addProductImage = async (req, res, next) => {};
 

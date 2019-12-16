@@ -1,7 +1,8 @@
 import { Table, Button } from 'antd';
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import {getProducts} from "../../../actions";
+import {getProductsList} from "../../../actions";
+import {Link} from "react-router-dom";
 
 class ListProducts extends Component {
 	constructor(props) {
@@ -12,7 +13,7 @@ class ListProducts extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getProducts();
+		this.props.getProductsList();
 	}
 
 	render() {
@@ -36,15 +37,15 @@ class ListProducts extends Component {
 				title: "Action",
 				render: (text, record) => (
 					<div>
-						<Button>Verify</Button>&nbsp;&nbsp;
-						<Button>Decline</Button>
+						<Link to={`/admin/products/${record._id}`}><Button>Edit</Button></Link>&nbsp;&nbsp;
+						<Button>Delete</Button>
 					</div>
 				)
 			}
 		];
 
 		return (
-			<React.Fragment>
+			<div className="content">
 				{this.props.products && (
 					<Table
 						pagination={false}
@@ -52,13 +53,13 @@ class ListProducts extends Component {
 						dataSource={this.props.products}
 					/>
 				)}
-			</React.Fragment>
+			</div>
 		);
 	}
 }
 
 const mapDispatchToProps = {
-	getProducts,
+	getProductsList,
 };
 
 function mapStateToProps(state) {
