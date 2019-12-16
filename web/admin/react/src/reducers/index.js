@@ -6,6 +6,7 @@ const initialState = {
 	authorized: true,
 	token: null,
 	products: null,
+	productLoading: false,
 	product: null,
 	ordersStatus: null,
 	orders: null,
@@ -55,9 +56,17 @@ export default (state = initialState, action) => {
 				products: action.products
 			};
 
-		case types.RECEIVE_PRODUCT:
+		case types.RECEIVE_PRODUCT_BEGIN:
 			return {
 				...state,
+				productLoading: true,
+				product: null
+			};
+
+		case types.RECEIVE_PRODUCT_COMPLETED:
+			return {
+				...state,
+				productLoading: false,
 				product: action.product
 			};
 

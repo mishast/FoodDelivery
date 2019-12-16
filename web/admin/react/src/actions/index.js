@@ -38,8 +38,12 @@ const receiveOrder = order => ({
 	order
 });
 
-const receiveProduct = product => ({
-	type: types.RECEIVE_PRODUCT,
+const receiveProductBegin = () => ({
+	type: types.RECEIVE_PRODUCT_BEGIN
+});
+
+const receiveProductCompleted = product => ({
+	type: types.RECEIVE_PRODUCT_COMPLETED,
 	product
 });
 
@@ -71,13 +75,14 @@ export const getOrder = orderId => {
 
 export const getProduct = productId => {
 	return async dispatch => {
+		dispatch(receiveProductBegin());
 		console.log('get product');
 		const product = await agent.getProduct(productId);
 		console.log('product:');
 		console.log(product);
 
 		if (product) {
-			dispatch(receiveProduct(product));
+			dispatch(receiveProductCompleted(product));
 		}
 	};
 };

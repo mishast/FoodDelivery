@@ -34,18 +34,31 @@ class Product extends Component {
 	};
 
 	render() {
-		console.log(this.props.productId);
-		if (this.props.product) {
-			console.log(this.props.product);
-		}
-
 		const editable = this.state.editable;
 		const onEditEnable = this.enableEdit;
 		const onEditDisable = this.disableEdit;
 
+		if (this.props.productLoading || !this.props.product) {
+			return (
+				<React.Fragment>
+					<div className="form">
+						<React.Fragment>
+							<div className='form-head'>
+								<div className='form-title'>
+									Product Loading...
+								</div>
+								<div className='form-space_between'>&nbsp;</div>
+							</div>
+							<div className='form-content'>&nbsp;</div>
+							<div className='form-bottom'>&nbsp;</div>
+						</React.Fragment>
+					</div>
+				</React.Fragment>
+			);
+		}
+
 		return (
 			<React.Fragment>
-				{ !this.props.product &&
 					<div className="form">
 						<React.Fragment>
 							<div className='form-head'>
@@ -68,7 +81,6 @@ class Product extends Component {
 							}
 						</React.Fragment>
 					</div>
-				}
 			</React.Fragment>
 		);
 	}
@@ -80,6 +92,7 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
+		productLoading: state.productLoading,
 		product: state.product,
 	};
 }

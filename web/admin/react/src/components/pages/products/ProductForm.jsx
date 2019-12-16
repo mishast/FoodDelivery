@@ -29,7 +29,6 @@ class ProductForm extends Component {
 	}
 
 	render() {
-		console.log('ProductForm::render()');
 		if (this.props.product) {
 			console.log(this.props.product);
 		}
@@ -39,7 +38,6 @@ class ProductForm extends Component {
 		return (
 							<Formik initialValues={this.props.product} enableReinitialize={true} keepDirtyOnReinitalize={false}>
 							<div className='form-content'>
-								<div>{this.props.product.title}</div>
 								<Form.Item label="Title">
 									<Field as={Input} name='title' disabled={!editable} />
 								</Form.Item>
