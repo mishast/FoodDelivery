@@ -154,6 +154,8 @@ class ProductForm extends Component {
 								</Form.Item>
 								<Modal
 									title="Select image"
+									wrapClassName="cropImageModal"
+									width="90vw"
 									visible={this.state.selectImageVisible}
 									onOk={this.imageSelected}
 									onCancel={this.imageSelectCanceled}
