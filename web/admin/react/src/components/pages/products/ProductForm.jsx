@@ -34,7 +34,6 @@ class ProductForm extends Component {
 		crop: {
 			unit: '%',
 			width: 330,
-			height: 270,
 			aspect: 330 / 270,
 
 		}
@@ -168,6 +167,7 @@ class ProductForm extends Component {
 										onImageLoaded={this.onImageLoaded}
 										onComplete={this.onCropComplete}
 										onChange={this.onCropChange}
+										imageStyle={{maxHeight: '350px'}}
 									/>
 									</div>
 									<UploadButton onSelected={this.fileSelected}/>
