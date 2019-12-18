@@ -46,6 +46,7 @@ class ListProducts extends Component {
 
 		return (
 			<div className="content">
+
 				{this.props.products && (
 					<Table
 						pagination={false}

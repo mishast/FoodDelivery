@@ -1,22 +1,45 @@
-import { Upload, Button, Icon } from 'antd';
+import { Button, Icon } from 'antd';
 import React, { Component } from "react";
 
 class UploadButton extends Component {
-	beforeUpload = (file) => {
-		if (this.props.onSelected) {
-			this.props.onSelected(file);
-		}
+	constructor(props) {
+		super(props);
+		this.fileInputRef = React.createRef();
+	}
 
-		return false;
+	handleSelect = () => {
+		const el = this.fileInputRef.current;
+		if (!el) {
+			return;
+		}
+		el.click();
+	};
+
+	handleChange = e => {
+		const files = e.target.files;
+
+		if (files.length === 1) {
+			if (this.props.onFileSelected) {
+				this.props.onFileSelected(files[0]);
+			}
+		}
 	};
 
 	render() {
 		return (
-			<Upload beforeUpload={this.beforeUpload}>
-				<Button>
-					<Icon type="upload" /> Select file
+			<React.Fragment>
+				<input
+					type="file"
+					ref={this.fileInputRef}
+					style={{'display': 'none'}}
+					accept="image/*"
+					multiple={false}
+					onChange={this.handleChange}
+				/>
+				<Button className="upload-button" type="primary" onClick={this.handleSelect}>
+					<Icon type="upload" /> Select file...
 				</Button>
-			</Upload>
+			</React.Fragment>
 		);
 	}
 }
