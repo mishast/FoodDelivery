@@ -3,13 +3,24 @@
   <img src="https://img.shields.io/badge/React-16.10.+-lightblue.svg">
   <img src="https://img.shields.io/badge/Redux-4.0.+-purple.svg">
   <img src="https://img.shields.io/badge/Nodejs-10.16.+-green.svg">
-  <img src="https://img.shields.io/badge/Express-4.17.+-black.svg">
+  <img src="https://img.shields.io/badge/Ex<press-4.17.+-black.svg">
 </p>
 FoodDelivery is open source ecommerce application for food delivering.
 Application consists of following parts:
+
 1. Store front - React based SPA with server side rendering
 2. Backoffice - React
 3. API Backend - Node.js, Express, MongoDb
+
+## Screenshots
+
+### Store
+
+<img src="https://github.com/mishast/FoodDelivery/raw/master/docs/github_mockup_store.png">
+
+### Admin
+
+<img src="https://github.com/mishast/FoodDelivery/raw/master/docs/github_mockup_admin.png">
 
 ## Live demo
 
